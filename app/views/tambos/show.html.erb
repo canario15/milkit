@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tambo.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @tambo.address %>
+</p>
+
+<p>
+  <strong>Phone contact:</strong>
+  <%= @tambo.phone_contact %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @tambo.user %>
+</p>
+
+<%= link_to 'Edit', edit_tambo_path(@tambo) %> |
+<%= link_to 'Back', tambos_path %>

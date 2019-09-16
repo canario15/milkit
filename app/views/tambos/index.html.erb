@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tambos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phone contact</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tambos.each do |tambo| %>
+      <tr>
+        <td><%= tambo.name %></td>
+        <td><%= tambo.address %></td>
+        <td><%= tambo.phone_contact %></td>
+        <td><%= tambo.user %></td>
+        <td><%= link_to 'Show', tambo %></td>
+        <td><%= link_to 'Edit', edit_tambo_path(tambo) %></td>
+        <td><%= link_to 'Destroy', tambo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tambo', new_tambo_path %>
