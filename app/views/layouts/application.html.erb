@@ -12,13 +12,6 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <div>
-      <% if signed_in? %>
-        <%= link_to "Salir", destroy_user_session_path, method: :delete %>
-      <% end %>
-    </div>
     <%= render partial: "/layouts/left_panel" %>
     <%= render partial: "/layouts/right_panel" %>
   </body>

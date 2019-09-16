@@ -13,3 +13,43 @@
  *= require_tree .
  *= require_self
  */
+
+.right-panel .navbar-brand img {
+  max-width: 226px;
+}
+
+.error-field span {
+  color: #dc3545;
+}
+.error-field input {
+  border-color: #dc3545;
+}
+.error-field label {
+  color: #dc3545;
+}
+
+.cow-item {
+  float: left;
+  margin-left: 28px;
+  text-align: center;
+}
+
+.cow-item img {
+  width: 50px;
+}
+
+.cow-icon {
+  width: 30px;
+}
+
+.cow-show-title {
+  margin-top: 1px;
+  margin-left: 5px;
+  font-size: 21px;
+  font-weight: bold;
+}
+.cow-add-icon {
+  font-size: 28px;
+  color:black;
+  margin-top: 18px;
+}
