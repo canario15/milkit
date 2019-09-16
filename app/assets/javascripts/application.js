@@ -13,4 +13,13 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
+//= require jquery.min.js
+//= require popper.min.js
+//= require bootstrap.min.js
+//= require jquery.matchHeight.min.js
+//= require main.js
+
+jQuery(document).ready(function($) {
+  "use strict";
+
+});
