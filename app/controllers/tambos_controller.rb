@@ -4,7 +4,7 @@ class TambosController < InheritedResources::Base
   private
 
     def tambo_params
-      params.require(:tambo).permit(:name, :address, :phone_contact, :user_id)
+      params.require(:tambo).permit(:name, :address, :phone_contact, :logo, :user_id)
     end
 
 end
