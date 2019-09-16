@@ -36,6 +36,7 @@ es:
         password: 'Contraseña'
         password_confirmation: 'Confirmar contraseña'
         avatar: 'Imagen'
+        remember_me: 'Recordarme'
       tambo:
         name: 'Estblecimiento'
         address: 'Dirección'

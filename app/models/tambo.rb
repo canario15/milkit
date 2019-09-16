@@ -1,5 +1,6 @@
 class Tambo < ApplicationRecord
   belongs_to :user
+  has_many :cows
   has_one_attached :logo
 
   validates :name, presence: true
@@ -12,7 +13,7 @@ class Tambo < ApplicationRecord
     if logo.attached?
       logo
     else
-      '/assets/tambo_default.jpeg'
+      '/assets/tambo_defaut.jpeg'
     end
   end
 end
