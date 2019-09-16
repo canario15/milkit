@@ -1,8 +1,41 @@
+<title>Milkit Admin</title>
+<%= favicon_link_tag 'favicon.ico' %>
+<style>
+
+.index-page {
+  width: 100%;
+  text-align: center;
+}
+
+.lkn-new-session {
+  margin: 2px 0;
+  display: inline-block;
+  transition: all .15s ease-in-out;
+  border-radius: 10px;
+  box-shadow: none;
+  outline: 0 !important;
+  color:#fff;
+  background-color:#28a745;
+  border-color:#28a745;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.lkn-new-session:hover {
+  color:#fff;
+  background-color:#218838;
+  border-color:#1e7e34;
+}
+
+</style>
+
 <div class="index-page">
   <%= image_tag 'logo2.png', class: 'index-logo' %></br>
   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</br> 
     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</br>
     when an unknown printer took a galley of type and scrambled it to make a type</br>
     specimen book.</p></br>
-  <%= link_to "Ingresar", new_user_session_path %>
+  <%= link_to "Ingresar", new_user_session_path, class: "lkn-new-session" %>
 </div>

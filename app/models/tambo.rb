@@ -7,4 +7,12 @@ class Tambo < ApplicationRecord
   def to_s
     name
   end
+
+  def display_logo
+    if logo.attached?
+      logo
+    else
+      '/assets/tambo_default.jpeg'
+    end
+  end
 end

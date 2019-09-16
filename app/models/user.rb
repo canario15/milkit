@@ -6,4 +6,12 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_many :tambos
+
+  def display_avatar
+    if avatar.attached?
+      avatar
+    else
+      '/assets/defaut_avatar.png'
+    end
+  end
 end
