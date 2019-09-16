@@ -1,37 +1,43 @@
-<%= form_with(model: tambo, local: true) do |form| %>
-  <% if tambo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(tambo.errors.count, "error") %> prohibited this tambo from being saved:</h2>
-
-      <ul>
-      <% tambo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_with(model: tambo, local: true, class: "form-horizontal") do |form| %>
+  <div class="card-body card-block"> 
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <%= form.label :name, class: "form-control-label" %>
+      </div>
+      <div class="col-12 col-md-9">
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <%= form.label :address, class: "form-control-label" %>
+      </div>
+      <div class="col-12 col-md-9">
+        <%= form.text_field :address, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <%= form.label :phone_contact, class: "form-control-label" %>
+      </div>
+      <div class="col-12 col-md-9">
+        <%= form.text_field :phone_contact, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <%= form.label :map_position, class: "form-control-label" %>
+      </div>
+      <div class="col-12 col-md-9">
+        <%= form.text_field :map_position, class: "form-control" %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :phone_contact %>
-    <%= form.text_field :phone_contact %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="card-footer">
+    <%= form.submit "Guardar", class: "btn btn-primary btn-sm" %>
   </div>
 <% end %>
+
