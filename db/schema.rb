@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_16_003653) do
+ActiveRecord::Schema.define(version: 2019_09_16_030312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,16 @@ ActiveRecord::Schema.define(version: 2019_09_16_003653) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "cows", force: :cascade do |t|
+    t.string "caravan"
+    t.date "birth_date"
+    t.string "status"
+    t.bigint "tambo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tambo_id"], name: "index_cows_on_tambo_id"
+  end
+
   create_table "tambos", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -71,5 +81,6 @@ ActiveRecord::Schema.define(version: 2019_09_16_003653) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cows", "tambos"
   add_foreign_key "tambos", "users"
 end

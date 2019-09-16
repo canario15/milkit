@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :cows
   resources :tambos
 
   devise_for :admin_users, ActiveAdmin::Devise.config

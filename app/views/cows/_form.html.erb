@@ -1,0 +1,42 @@
+<%= form_with(model: cow, local: true, class: "form-horizontal") do |form| %>
+  <div class="card-body card-block"> 
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <%= form.label :caravan, class: "form-control-label" %>
+      </div>
+      <div class="col-12 col-md-9">
+        <%= form.text_field :caravan, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <%= form.label :birth_date, class: "form-control-label" %>
+      </div>
+      <div class="col-12 col-md-9">
+        <%= form.date_select :birth_date, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <%= form.label :tambo_id, class: "form-control-label" %>
+      </div>
+      <div class="col-12 col-md-9">
+        <%= select("cow", "tambo_id", @tambos.collect {|t| [ t.name, t.id ] }, :prompt => "Seleccione..", :class => "form-control") %>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <%= form.label :status, class: "form-control-label" %>
+      </div>
+      <div class="col-12 col-md-9">
+        <%= form.text_field :status, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <%= form.submit "Guardar", class: "btn btn-primary btn-sm" %>
+  </div>
+<% end %>
