@@ -1,7 +1,7 @@
 <div class="card border border-secondary">
   <div class="card-header">
     <strong>
-      <%= @cow.tambo.name %>
+      <%= link_to @cow.tambo.name, tambo_path(@cow.tambo), class: 'tambo-link' %>
     </strong>
     | <%= @cow.tambo.address %> - Tel: <%= @cow.tambo.phone_contact %>
   </div>

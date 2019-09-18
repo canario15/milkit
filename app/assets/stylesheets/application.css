@@ -53,3 +53,11 @@
   color:black;
   margin-top: 18px;
 }
+
+.tambo-link {
+  color: black;
+}
+
+.tambo-link:hover {
+  color: #3ed22f;
+}

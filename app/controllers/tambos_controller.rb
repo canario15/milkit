@@ -16,6 +16,10 @@ class TambosController < InheritedResources::Base
     end
   end
 
+  def show
+    @cow = Cow.new
+  end
+
   private
 
   def set_tambo

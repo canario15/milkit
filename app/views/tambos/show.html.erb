@@ -27,7 +27,7 @@
         </div>
       <% end %>
     <% end %>
-    <%= link_to new_cow_path do %>
+    <%= link_to new_cow_path, :data => { :toggle => 'modal', :target => '#new_cow_modal' } do %>
       <div class="cow-item">
           <i class="fa fa-plus-square cow-add-icon"></i></br>
           Agregar
@@ -235,4 +235,57 @@
     </div>
   </div>
 </div>
-  
+<div class="modal fade" id="new_cow_modal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="largeModalLabel"> <strong>Nueva Vaca</strong></h5>
+      </div>
+      <%= form_with(model: @cow, local: true, class: "form-horizontal") do |form| %>
+        <div class="modal-body">
+          <div class="card-body card-block"> 
+            <div class="row form-group">
+              <div class="col col-md-3">
+                <%= form.label :caravan, class: "form-control-label" %>
+              </div>
+              <div class="col-12 col-md-9">
+                <%= form.text_field :caravan, class: "form-control" %>
+              </div>
+            </div>
+        
+            <div class="row form-group">
+              <div class="col col-md-3">
+                <%= form.label :birth_date, class: "form-control-label" %>
+              </div>
+              <div class="col-12 col-md-9">
+                <%= form.date_select :birth_date, class: "form-control" %>
+              </div>
+            </div>
+        
+            <div class="row form-group">
+              <div class="col col-md-3">
+                <%= form.label :tambo_id, class: "form-control-label" %>
+              </div>
+              <div class="col-12 col-md-9">
+                <%= form.select :tambo_id, options_for_select([[ @tambo, @tambo.id]]), {:include_blank => true } %>
+              </div>
+            </div>
+        
+            <div class="row form-group">
+              <div class="col col-md-3">
+                <%= form.label :status, class: "form-control-label" %>
+              </div>
+              <div class="col-12 col-md-9">
+                <%= form.text_field :status, class: "form-control" %>
+              </div>
+            </div>
+          </div>    
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <%= form.submit "Guardar", class: "btn btn-success" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
