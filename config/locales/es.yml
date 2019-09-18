@@ -35,6 +35,7 @@ es:
         updated_at: 'Ultima actualización'
         password: 'Contraseña'
         password_confirmation: 'Confirmar contraseña'
+        current_password: 'Contraseña actual'
         avatar: 'Imagen'
         remember_me: 'Recordarme'
       tambo:
