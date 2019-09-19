@@ -18,6 +18,26 @@
   max-width: 226px;
 }
 
+.border-secondary {
+  border-color:#3ed22f !important;
+}
+
+.card-header {
+  border-bottom: 1px solid #3ed22f;
+}
+.card .card-footer {
+  border-top: 1px solid #3ed22f;
+}
+.modal-content {
+  border: 1px solid #3ed22f;
+}
+.modal-header {
+  border-bottom: 1px solid #3ed22f;
+}
+.modal-footer {
+  border-top: 1px solid #3ed22f;
+}
+
 .error-field span {
   color: #dc3545;
 }

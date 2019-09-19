@@ -1,5 +1,5 @@
 <%= form_with(model: cow, local: true, class: "form-horizontal") do |form| %>
-  <div class="card-body card-block"> 
+  <div class="card-body card-block">
     <div class="row form-group">
       <div class="col col-md-3">
         <%= form.label :caravan, class: "form-control-label" %>
@@ -37,6 +37,6 @@
     </div>
   </div>
   <div class="card-footer">
-    <%= form.submit "Guardar", class: "btn btn-primary btn-sm" %>
+    <%= form.submit "Guardar", class: "btn btn-info btn-sm" %>
   </div>
 <% end %>
