@@ -14,8 +14,10 @@ class CowsController < InheritedResources::Base
     respond_to do |format|
       if @cow.save
         format.html { redirect_to @cow, notice: 'Vaca creada con éxito.' }
+        format.json { render json: { :status =>  'OK', :message => 'Vaca creada con éxito.', :cow => @cow.to_json } }
       else
         format.html { render :new }
+        format.json { render json: { :status => 'ERROR', :errors => @cow.errors.messages } }
       end
     end
   end

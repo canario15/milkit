@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :cows, only: [:show, :update, :create, :new]
+  resources :cows, except: %i[index delete]
   resources :tambos
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  devise_for :users, :skip => [:registration]
-  resources :users, only: [:show, :update, :edit]
+  devise_for :users, skip:  %i[registration]
+  resources :users, only: %i[show update edit]
 
   root to: "home#index"
 end

@@ -1,5 +1,5 @@
 <div class="card border border-secondary">
-  <div class="card-header">
+  <div class="card-header" style="border-bottom:none">
     <strong>
       <%= @tambo.name %>
     </strong>
@@ -241,7 +241,7 @@
       <div class="modal-header">
         <h5 class="modal-title" id="largeModalLabel"> <strong>Nueva Vaca</strong></h5>
       </div>
-      <%= form_with(model: @cow, local: true, class: "form-horizontal") do |form| %>
+      <%= form_with(model: @cow, local: true, id: "cow_form", class: "form-horizontal") do |form| %>
         <div class="modal-body">
           <div class="card-body card-block"> 
             <div class="row form-group">
@@ -283,7 +283,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <%= form.submit "Guardar", class: "btn btn-success" %>
+          <%= form.submit "Guardar", id: "save_cow", class: "btn btn-info" %>
         </div>
       <% end %>
     </div>

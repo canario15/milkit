@@ -65,6 +65,8 @@ es:
             tambo:
               blank: 'no puede ser vacío'
               required: 'es requerido'
+            tambo_id:
+              blank: 'seleccione un tambo'
   time:
     formats:
       long: '%d de %B de %Y'

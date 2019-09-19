@@ -22,4 +22,29 @@
 jQuery(document).ready(function($) {
   "use strict";
 
+  $('#save_cow').click(function (e) {
+    e.preventDefault();
+    $.ajax({
+      type    : 'POST',
+      url     : '/cows',
+      data    : $('#cow_form').serialize(),
+      dataType  : 'json'
+    }).done(function(data) {
+      if ( data.status == 'OK') {
+        $('#new_cow_modal').modal('hide');
+      }else{
+        if (data.errors.caravan) {
+          $('#cow_caravan').parent().parent().addClass('error-field');
+          $('#cow_caravan').parent().append("<span class='span-err'> <i class='fa fa-exclamation-triangle'></i> "+ data.errors.caravan + "</span>");
+        }
+        if (data.errors.caravan) {
+          $('#cow_tambo_id').parent().parent().addClass('error-field');
+          $('#cow_tambo_id').parent().append("<span class='span-err'> <i class='fa fa-exclamation-triangle'></i> "+ data.errors.tambo_id + "</span>");
+         }
+      }
+    })
+    .fail(function(data) {
+    });
+
+  });
 });
