@@ -18,9 +18,15 @@
 //= require bootstrap.min.js
 //= require jquery.matchHeight.min.js
 //= require main.js
+//= require bootstrap-datepicker.min.js
+//= require bootstrap-datepicker.es.min.js
 
 jQuery(document).ready(function($) {
   "use strict";
+
+  $('.datepicker').datepicker({
+    startDate: '-3d',
+  });
 
   $('#save_cow').click(function (e) {
     e.preventDefault();
