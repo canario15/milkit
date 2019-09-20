@@ -21,15 +21,15 @@
 //= require bootstrap-datepicker.min.js
 //= require bootstrap-datepicker.es.min.js
 
+
 jQuery(document).ready(function($) {
   "use strict";
 
-  $('.datepicker').datepicker({
-    startDate: '-3d',
-  });
-
   $('#save_cow').click(function (e) {
     e.preventDefault();
+    $('#cow_caravan').parent().parent().removeClass('error-field');
+    $('#cow_tambo_id').parent().parent().removeClass('error-field');
+    $('#new_cow_modal .span-err').remove();
     $.ajax({
       type    : 'POST',
       url     : '/cows',
@@ -38,12 +38,13 @@ jQuery(document).ready(function($) {
     }).done(function(data) {
       if ( data.status == 'OK') {
         $('#new_cow_modal').modal('hide');
+        document.location.reload();
       }else{
         if (data.errors.caravan) {
           $('#cow_caravan').parent().parent().addClass('error-field');
           $('#cow_caravan').parent().append("<span class='span-err'> <i class='fa fa-exclamation-triangle'></i> "+ data.errors.caravan + "</span>");
         }
-        if (data.errors.caravan) {
+        if (data.errors.tambo_id) {
           $('#cow_tambo_id').parent().parent().addClass('error-field');
           $('#cow_tambo_id').parent().append("<span class='span-err'> <i class='fa fa-exclamation-triangle'></i> "+ data.errors.tambo_id + "</span>");
          }

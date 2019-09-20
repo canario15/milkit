@@ -270,7 +270,7 @@
                 <%= form.label :tambo_id, class: "form-control-label" %>
               </div>
               <div class="col-12 col-md-9">
-                <%= form.select :tambo_id, options_for_select([[ @tambo, @tambo.id]]), {:include_blank => true } %>
+                <%= form.select :tambo_id, options_for_select([[@tambo, @tambo.id]])%>
               </div>
             </div>
         
