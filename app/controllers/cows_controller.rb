@@ -30,6 +30,6 @@ class CowsController < InheritedResources::Base
   end
 
   def cow_params
-    params.require(:cow).permit(:caravan, :birth_date, :tambo_id, :status)
+    params.require(:cow).permit(:caravan, :birth_date, :tambo_id, :status, :cow_type)
   end
 end

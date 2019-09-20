@@ -243,7 +243,15 @@
       </div>
       <%= form_with(model: @cow, local: true, id: "cow_form", class: "form-horizontal") do |form| %>
         <div class="modal-body">
-          <div class="card-body card-block"> 
+          <div class="card-body card-block">
+            <div class="row form-group">
+              <div class="col col-md-3">
+                <%= form.label :cow_type, class: "form-control-label" %>
+              </div>
+              <div class="col-12 col-md-9">
+                <%= select("cow", "cow_type",options_for_select([["Vaca", 1], ["Vaquillona", 2]]), :prompt => "Seleccione..", :class => "form-control") %>
+              </div>
+            </div>
             <div class="row form-group">
               <div class="col col-md-3">
                 <%= form.label :caravan, class: "form-control-label" %>

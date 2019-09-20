@@ -29,6 +29,7 @@ jQuery(document).ready(function($) {
     e.preventDefault();
     $('#cow_caravan').parent().parent().removeClass('error-field');
     $('#cow_tambo_id').parent().parent().removeClass('error-field');
+    $('#cow_cow_type').parent().parent().removeClass('error-field');
     $('#new_cow_modal .span-err').remove();
     $.ajax({
       type    : 'POST',
@@ -47,7 +48,11 @@ jQuery(document).ready(function($) {
         if (data.errors.tambo_id) {
           $('#cow_tambo_id').parent().parent().addClass('error-field');
           $('#cow_tambo_id').parent().append("<span class='span-err'> <i class='fa fa-exclamation-triangle'></i> "+ data.errors.tambo_id + "</span>");
-         }
+        }
+        if (data.errors.cow_type) {
+          $('#cow_cow_type').parent().parent().addClass('error-field');
+          $('#cow_cow_type').parent().append("<span class='span-err'> <i class='fa fa-exclamation-triangle'></i> "+ data.errors.cow_type + "</span>");
+        }
       }
     })
     .fail(function(data) {

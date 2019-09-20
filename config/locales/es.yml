@@ -45,6 +45,7 @@ es:
         map_position: 'Posición en mapa'
         avatar: 'Logo'
       cow:
+        cow_type: 'Tipo'
         caravan: 'Caravana'
         birth_date: 'Fecha Nacimiento'
         tambo: 'Tambo'
@@ -67,6 +68,8 @@ es:
               required: 'es requerido'
             tambo_id:
               blank: 'seleccione un tambo'
+            cow_type:
+              blank: 'seleccione un tipo'
   time:
     formats:
       long: '%d de %B de %Y'
