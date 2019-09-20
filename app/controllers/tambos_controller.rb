@@ -17,6 +17,8 @@ class TambosController < InheritedResources::Base
   end
 
   def show
+    @vacas = @tambo.cows.vacas
+    @vaquillonas = @tambo.cows.vaquillonas
     @cow = Cow.new
   end
 
