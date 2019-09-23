@@ -81,3 +81,9 @@
 .tambo-link:hover {
   color: #3ed22f;
 }
+
+.edit-btn-cust {
+  padding: 4px;
+  border-radius: 4px;
+}
+
