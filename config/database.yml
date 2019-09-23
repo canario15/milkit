@@ -5,9 +5,9 @@ default: &default
 
 development:
   <<: *default
-  database: db/milkit_development
+  database: milkit_development
   host: localhost
-  username: postgresql
+  username: german
   password: password
 
 
@@ -16,8 +16,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/milkit_test
+  database: milkit_test
 
 production:
   <<: *default
-  database: db/milkit_production
+  database: milkit_production
