@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   devise_for :users, skip:  %i[registration]
   resources :users, only: %i[show update edit]
-
+  
+  get '/user/calendar', to: 'users#calendar'
+  
   root to: "home#index"
 end
