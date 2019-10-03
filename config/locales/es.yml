@@ -1,0 +1,139 @@
+es:
+  support:
+    array:
+      words_connector: ', '
+      two_words_connector: ' y '
+      last_word_connector: ' y '
+  activerecord:
+    models:
+      admin_user:
+        one: 'Usuario Administrador'
+        other: 'Usuarios Administradores'
+      user:
+        one: 'Usuario'
+        other: 'Usuarios'
+      tambo:
+        one: 'Tambo'
+        other: 'Tambos'
+      cow:
+        one: 'Vaca'
+        other: 'Vacas'
+    attributes:
+      admin_user:
+        email: 'Email'
+        created_at: 'Fecha creación'
+        current_sign_in_at: 'Conexión'
+        sign_in_count: 'Cantidad de ingresos'
+        updated_at: 'Ultima actualización'
+        password: 'Contraseña'
+        password_confirmation: 'Confirmar contraseña'
+      user:
+        email: 'Email'
+        created_at: 'Fecha creación'
+        current_sign_in_at: 'Conexión'
+        sign_in_count: 'Cantidad de ingresos'
+        updated_at: 'Ultima actualización'
+        password: 'Contraseña'
+        password_confirmation: 'Confirmar contraseña'
+        current_password: 'Contraseña actual'
+        avatar: 'Imagen'
+        remember_me: 'Recordarme'
+      tambo:
+        name: 'Estblecimiento'
+        address: 'Dirección'
+        phone_contact: 'Teléfono de contacto'
+        map_position: 'Posición en mapa'
+        avatar: 'Logo'
+      cow:
+        cow_type: 'Tipo'
+        caravan: 'Caravana'
+        birth_date: 'Fecha Nacimiento'
+        tambo: 'Tambo'
+        status: 'Estado'
+    errors:
+      format: "%{attribute} %{message}"
+      models:
+        tambo:
+          attributes:
+            name:
+              blank: 'no puede ser vacío'
+            avatar:
+              format: 'formato incorrecto'
+        cow:
+          attributes:
+            caravan:
+              blank: 'no puede ser vacía'
+            tambo:
+              blank: 'no puede ser vacío'
+              required: 'es requerido'
+            tambo_id:
+              blank: 'seleccione un tambo'
+            cow_type:
+              blank: 'seleccione un tipo'
+  time:
+    formats:
+      long: '%d de %B de %Y'
+      short: '%d de %B - %Y'
+  date:
+    abbr_day_names:
+    - dom
+    - lun
+    - mar
+    - mié
+    - jue
+    - vie
+    - sáb
+    abbr_month_names:
+    -
+    - ene
+    - feb
+    - mar
+    - abr
+    - may
+    - jun
+    - jul
+    - ago
+    - sep
+    - oct
+    - nov
+    - dic
+    day_names:
+    - domingo
+    - lunes
+    - martes
+    - miércoles
+    - jueves
+    - viernes
+    - sábado
+    formats:
+      default: ! '%d/%m/%Y'
+      long: ! '%d de %B de %Y'
+      short: ! '%d de %b'
+    month_names:
+    -
+    - enero
+    - febrero
+    - marzo
+    - abril
+    - mayo
+    - junio
+    - julio
+    - agosto
+    - septiembre
+    - octubre
+    - noviembre
+    - diciembre
+    order:
+    - :day
+    - :month
+    - :year
+  will_paginate:
+    previous_label: '&#8592; Aterior'
+    next_label: 'Siguiente &#8594;'
+    page_gap: '&hellip;'
+  views:
+    pagination:
+      next: 'Siguiente &#8594;'
+      last: 'Ultimo'
+      first: 'Primero'
+      previous: '&#8592 Anterior'

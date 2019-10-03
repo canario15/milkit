@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Milkit</title>
+    <title>Milkit Admin</title>
+    <%= favicon_link_tag 'favicon.ico' %>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +12,7 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render partial: "/layouts/left_panel" %>
+    <%= render partial: "/layouts/right_panel" %>
   </body>
 </html>

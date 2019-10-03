@@ -1,0 +1,35 @@
+<div class="row">
+  <% @tambos.each do |tambo| %>
+    <%= link_to tambo_path(tambo) do %>
+      <div class="col-md-4">
+        <aside class="profile-nav alt">
+          <section class="card">
+            <div class="card-header user-header alt bg-dark">
+              <div class="media">
+                  <%= image_tag tambo.display_logo, class: "align-self-center rounded-circle mr-3", style: "width:85px; height:85px;" %>
+                <div class="media-body">
+                  <h2 class="text-light display-6"><%= tambo.name %></h2>
+                  <p><%= tambo.address %></p>
+                </div>
+              </div>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <a href="#"> <i class="fa fa-dot-circle-o"></i> Vacas secas <span class="badge badge-primary pull-right">10</span></a>
+              </li>
+              <li class="list-group-item">
+                <a href="#"> <i class="fa fa-dot-circle-o"></i> Vacas preñadas <span class="badge badge-danger pull-right">15</span></a>
+              </li>
+              <li class="list-group-item">
+                <a href="#"> <i class="fa fa-dot-circle-o"></i> Vacas operativas <span class="badge badge-success pull-right">11</span></a>
+              </li>
+              <li class="list-group-item">
+                <a href="#"> <i class="fa fa-dot-circle-o"></i> Terneros <span class="badge badge-warning pull-right r-activity">03</span></a>
+              </li>
+            </ul>
+          </section>
+        </aside>
+      </div>
+    <% end %>
+  <% end %>
+</div>

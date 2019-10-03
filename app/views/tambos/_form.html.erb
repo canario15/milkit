@@ -1,0 +1,34 @@
+<%= form_with(model: tambo, local: true, class: "form-horizontal") do |form| %>
+  <div class="card-body card-block"> 
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <%= form.label :name, class: "form-control-label" %>
+      </div>
+      <div class="col-12 col-md-9">
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <%= form.label :address, class: "form-control-label" %>
+      </div>
+      <div class="col-12 col-md-9">
+        <%= form.text_field :address, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <%= form.label :phone_contact, class: "form-control-label" %>
+      </div>
+      <div class="col-12 col-md-9">
+        <%= form.text_field :phone_contact, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <%= form.submit "Guardar", class: "btn btn-info btn-sm" %>
+  </div>
+<% end %>
+

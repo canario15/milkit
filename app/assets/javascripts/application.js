@@ -13,4 +13,50 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
+//= require jquery.min.js
+//= require popper.min.js
+//= require bootstrap.min.js
+//= require jquery.matchHeight.min.js
+//= require main.js
+//= require bootstrap-datepicker.min.js
+//= require bootstrap-datepicker.es.min.js
+
+
+jQuery(document).ready(function($) {
+  "use strict";
+
+  $('#save_cow').click(function (e) {
+    e.preventDefault();
+    $('#cow_caravan').parent().parent().removeClass('error-field');
+    $('#cow_tambo_id').parent().parent().removeClass('error-field');
+    $('#cow_cow_type').parent().parent().removeClass('error-field');
+    $('#new_cow_modal .span-err').remove();
+    $.ajax({
+      type    : 'POST',
+      url     : '/cows',
+      data    : $('#cow_form').serialize(),
+      dataType  : 'json'
+    }).done(function(data) {
+      if ( data.status == 'OK') {
+        $('#new_cow_modal').modal('hide');
+        document.location.reload();
+      }else{
+        if (data.errors.caravan) {
+          $('#cow_caravan').parent().parent().addClass('error-field');
+          $('#cow_caravan').parent().append("<span class='span-err'> <i class='fa fa-exclamation-triangle'></i> "+ data.errors.caravan + "</span>");
+        }
+        if (data.errors.tambo_id) {
+          $('#cow_tambo_id').parent().parent().addClass('error-field');
+          $('#cow_tambo_id').parent().append("<span class='span-err'> <i class='fa fa-exclamation-triangle'></i> "+ data.errors.tambo_id + "</span>");
+        }
+        if (data.errors.cow_type) {
+          $('#cow_cow_type').parent().parent().addClass('error-field');
+          $('#cow_cow_type').parent().append("<span class='span-err'> <i class='fa fa-exclamation-triangle'></i> "+ data.errors.cow_type + "</span>");
+        }
+      }
+    })
+    .fail(function(data) {
+    });
+
+  });
+});

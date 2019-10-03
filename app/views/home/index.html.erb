@@ -1,0 +1,45 @@
+<title>Milkit Admin</title>
+<%= favicon_link_tag 'favicon.ico' %>
+<style>
+
+.index-page {
+  width: 100%;
+  text-align: center;
+  margin-top: 88px;
+}
+
+.lkn-new-session {
+  margin: 2px 0;
+  display: inline-block;
+  transition: all .15s ease-in-out;
+  border-radius: 10px;
+  box-shadow: none;
+  outline: 0 !important;
+  color:#fff;
+  background-color:#28a745;
+  border-color:#28a745;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.lkn-new-session:hover {
+  color:#fff;
+  background-color:#218838;
+  border-color:#1e7e34;
+}
+
+body {
+  background-color: #fff5d6;
+}
+</style>
+
+<div class="index-page">
+  <%= image_tag 'logo2.png', class: 'index-logo' %></br>
+  <p>Milkit Admin es un sistema capaz de llevar la administración</br>
+    de uno a varios tambos a la vez.</br>
+    También el control del plantel de vacas y su historial dese que nace</br>
+    hasta que deja de operar.</p></br>
+  <%= link_to "Ingresar", new_user_session_path, class: "lkn-new-session" %>
+</div>

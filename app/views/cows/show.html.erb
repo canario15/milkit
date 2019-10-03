@@ -1,0 +1,107 @@
+<div class="card border border-secondary">
+  <div class="card-header" style="border-bottom:none">
+    <strong>
+      <%= link_to @cow.tambo.name, tambo_path(@cow.tambo), class: 'tambo-link' %>
+    </strong>
+    | <%= @cow.tambo.address %> - Tel: <%= @cow.tambo.phone_contact %>
+  </div>
+</div>
+
+<div class="card border border-secondary">
+  <div class="card-header">
+    <div class="float-left">
+      <strong>
+        <%= image_tag 'black_cow_icon.png', class: 'cow-icon' %>
+      </strong>
+      <span class="cow-show-title">
+        <%= @cow.caravan %>
+      </span>
+    </div>
+    <div class="float-right">
+      <small>
+        <span class="float-right mt-1">
+          <%= link_to 'Editar', edit_cow_path(@cow), class: 'edit-btn-cust btn-info' %>
+        </span>
+      </small>
+    </div>
+  </div>
+  <div class="card-body p-0 card-block">
+    <table class="table table-hover table-striped table-align-middle mb-0">
+      <thead>
+        <tr>
+          <th>Dato1</th>
+          <th>Dato2</th>
+          <th>Dato3</th>
+          <th>Dato4</th>
+          <th>Dato5</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>
+            <%= link_to "#" do %>
+              <i class="fa fa-edit"></i>
+            <% end %>
+            <%= link_to "#" do %>
+              <i class="fa fa-times"></i>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>
+            <%= link_to "#" do %>
+              <i class="fa fa-edit"></i>
+            <% end %>
+            <%= link_to "#" do %>
+              <i class="fa fa-times"></i>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>
+            <%= link_to "#" do %>
+              <i class="fa fa-edit"></i>
+            <% end %>
+            <%= link_to "#" do %>
+              <i class="fa fa-times"></i>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>
+            <%= link_to "#" do %>
+              <i class="fa fa-edit"></i>
+            <% end %>
+            <%= link_to "#" do %>
+              <i class="fa fa-times"></i>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+  
+  
+  

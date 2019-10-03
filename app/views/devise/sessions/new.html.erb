@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Milkit Admin</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= favicon_link_tag 'favicon.ico' %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  
+  <body class="bg-dark">
+    <div class="sufee-login d-flex align-content-center flex-wrap">
+      <div class="container">
+        <div class="login-content">
+          <div class="login-form">
+            <div class="login-logo">
+              <a href="/">
+                <img class="align-content" src="/assets/logo.png" alt="">
+              </a>
+            </div>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="form-group">
+                <%= f.label :email %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+              </div>
+            
+              <div class="form-group">
+                <%= f.label :password %>
+                <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+              </div>
+            
+              <% if devise_mapping.rememberable? %>
+                <div class="checkbox">
+                  <label>
+                      <%= f.label :remember_me %>
+                      <%= f.check_box :remember_me %>
+                  </label>
+                  <label class="pull-right">
+                      <a href="#">Olvido la contraseña?</a>
+                  </label>
+                </div>
+              <% end %>
+              <%= f.submit "Ingresar", class: "btn btn-success btn-flat m-b-30 m-t-30" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
