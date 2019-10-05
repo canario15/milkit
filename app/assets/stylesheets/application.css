@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-
+ 
 .right-panel .navbar-brand img {
   max-width: 226px;
 }
