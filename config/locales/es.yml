@@ -13,8 +13,8 @@ es:
         one: 'Usuario'
         other: 'Usuarios'
       tambo:
-        one: 'Tambo'
-        other: 'Tambos'
+        one: 'Establecimiento'
+        other: 'Establecimientos'
       cow:
         one: 'Vaca'
         other: 'Vacas'
@@ -48,7 +48,7 @@ es:
         cow_type: 'Tipo'
         caravan: 'Caravana'
         birth_date: 'Fecha Nacimiento'
-        tambo: 'Tambo'
+        tambo: 'Establecimiento'
         status: 'Estado'
     errors:
       format: "%{attribute} %{message}"
