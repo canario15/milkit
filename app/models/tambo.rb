@@ -13,7 +13,7 @@ class Tambo < ApplicationRecord
     if logo.attached?
       logo
     else
-      '/assets/tambo_defaut.jpeg'
+      'tambo_defaut.jpeg'
     end
   end
 end
