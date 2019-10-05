@@ -11,7 +11,7 @@ class User < ApplicationRecord
     if avatar.attached?
       avatar
     else
-      ActionController::Base.helpers.asset_path('defaut_avatar.png')
+      ActionController::Base.helpers.image_url('defaut_avatar.png')
     end
   end
 end

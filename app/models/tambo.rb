@@ -13,7 +13,7 @@ class Tambo < ApplicationRecord
     if logo.attached?
       logo
     else
-      ActionController::Base.helpers.asset_path('tambo_defaut.jpeg')
+      ActionController::Base.helpers.image_url('tambo_defaut.jpeg')
     end
   end
 end
