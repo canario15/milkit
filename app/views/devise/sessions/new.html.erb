@@ -24,11 +24,13 @@
               <div class="form-group">
                 <%= f.label :email %>
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                <p style="font-style: italic;">usuario de prueba: test@milkitadmin.com</p>
               </div>
             
               <div class="form-group">
                 <%= f.label :password %>
                 <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+                <p style="font-style: italic;">contraseña de prueba: milkitadmin</p>
               </div>
             
               <% if devise_mapping.rememberable? %>

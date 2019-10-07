@@ -39,7 +39,7 @@ es:
         avatar: 'Imagen'
         remember_me: 'Recordarme'
       tambo:
-        name: 'Estblecimiento'
+        name: 'Nombre'
         address: 'Dirección'
         phone_contact: 'Teléfono de contacto'
         map_position: 'Posición en mapa'
