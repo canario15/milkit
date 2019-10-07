@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     end
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to tambo_path }
+        format.html { redirect_to tambos_path }
       else
         format.html { render :edit }
       end
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def calendar
-    
+
   end
 
   private
