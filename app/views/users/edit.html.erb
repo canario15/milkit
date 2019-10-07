@@ -11,6 +11,19 @@
         </div>
         <div class="row form-group">
           <div class="col col-md-3">
+            <%= f.label :avatar, class: "form-control-label" %>
+          </div>
+          <div class="col-12 col-md-9">
+            <div class="input-group">
+              <div class="custom-file">
+                <%= f.file_field :avatar, class: "custom-file-input" %>
+                <label class="custom-file-label" >Seleccione..</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-3">
             <%= f.label :email, class: "form-control-label" %>
           </div>
           <div class="col-12 col-md-9">
@@ -39,11 +52,6 @@
           </div>
           <div class="col-12 col-md-9">
             <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
-          </div>
-        </div>
-        <div class="row form-group">
-          <div class="col-12 col-md-9">
-            <%= f.file_field :avatar, class: "form-control" %>
           </div>
         </div>
       </div>

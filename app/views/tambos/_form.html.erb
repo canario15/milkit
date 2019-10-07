@@ -1,5 +1,22 @@
 <%= form_with(model: tambo, local: true, class: "form-horizontal") do |form| %>
-  <div class="card-body card-block"> 
+  <div class="card-body card-block">
+    <div class="row form-group">
+      <%= image_tag(tambo.display_logo, class: "tambo-logo") %>
+    </div>
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <%= form.label :logo, class: "form-control-label" %>
+      </div>
+      <div class="col-12 col-md-9">
+        <div class="input-group">
+          <div class="custom-file">
+            <%= form.file_field :logo, class: "custom-file-input" %>
+            <label class="custom-file-label" >Seleccione..</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="row form-group">
       <div class="col col-md-3">
         <%= form.label :name, class: "form-control-label" %>

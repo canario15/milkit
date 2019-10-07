@@ -33,6 +33,7 @@ class TambosController < InheritedResources::Base
                                   :address,
                                   :phone_contact,
                                   :map_position,
-                                  :user_id)
+                                  :user_id,
+                                  :logo)
   end
 end
