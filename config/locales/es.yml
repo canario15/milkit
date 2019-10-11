@@ -50,6 +50,12 @@ es:
         birth_date: 'Fecha Nacimiento'
         tambo: 'Establecimiento'
         status: 'Estado'
+        statuses:
+          dry: "Seca"
+          pregnant: "Preñada"
+          discard: "Descarte"
+          empty: "Vacía"
+          dead: "Muerta"
     errors:
       format: "%{attribute} %{message}"
       models:
@@ -63,6 +69,7 @@ es:
           attributes:
             caravan:
               blank: 'no puede ser vacía'
+              taken: 'ya existe esta caravana en el tambo'
             tambo:
               blank: 'no puede ser vacío'
               required: 'es requerido'
@@ -70,6 +77,8 @@ es:
               blank: 'seleccione un tambo'
             cow_type:
               blank: 'seleccione un tipo'
+            status:
+              blank: 'seleccione un estado'
   time:
     formats:
       long: '%d de %B de %Y'

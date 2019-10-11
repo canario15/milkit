@@ -1,5 +1,7 @@
+<%= status_color(@cow.read_attribute_before_type_cast(:status)).html_safe %>
 <div class="card border border-secondary">
   <div class="card-header" style="border-bottom:none">
+    <%= image_tag(@cow.tambo.display_logo, class: "tambo-logo-mini") %>
     <strong>
       <%= link_to @cow.tambo.name, tambo_path(@cow.tambo), class: 'tambo-link' %>
     </strong>
@@ -7,14 +9,23 @@
   </div>
 </div>
 
-<div class="card border border-secondary">
-  <div class="card-header">
+<div class="card border border-status">
+  <div class="card-header status-color">
     <div class="float-left">
       <strong>
-        <%= image_tag 'black_cow_icon.png', class: 'cow-icon' %>
+        <%= image_tag "#{@cow.status_number}_cow_icon.png", class: 'cow-icon' %>
       </strong>
       <span class="cow-show-title">
+        -
+      </span>
+      <span class="cow-show-title">
         <%= @cow.caravan %>
+      </span>
+      <span class="cow-show-title">
+        -
+      </span>
+      <span class="cow-show-title">
+        <%= @cow.status_name %>
       </span>
     </div>
     <div class="float-right">
