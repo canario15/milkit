@@ -1,0 +1,25 @@
+.badge-dry {
+  color:#fff;
+  background-color:#0FA20B;
+  margin-top: 4px;
+}
+.badge-pregnant {
+  color:#fff;
+  background-color:#221D8F;
+  margin-top: 4px;
+}
+.badge-discard {
+  color:#fff;
+  background-color:#ED2F15;
+  margin-top: 4px;
+}
+.badge-empty {
+  color:#fff;
+  background-color:#EDE515;
+  margin-top: 4px;
+}
+.badge-dead {
+  color:#fff;
+  background-color:#010101;
+  margin-top: 4px;
+}

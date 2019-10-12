@@ -15,7 +15,7 @@ class Cow < ApplicationRecord
   validates :status, presence: true
   validates_uniqueness_of :caravan, scope: :tambo_id
 
-  default_scope { order(caravan: :asc) }
+  default_scope { where.not(status: :dead).order(caravan: :asc) }
 
   scope :vacas, -> { where(cow_type: 1) }
   scope :vaquillonas, -> { where(cow_type: 2) }

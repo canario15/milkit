@@ -15,16 +15,40 @@
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
-                <a href="#"> <i class="fa fa-dot-circle-o"></i> Vacas secas <span class="badge badge-primary pull-right">10</span></a>
+                <a href="#"> 
+                  <i class="fa fa-dot-circle-o"></i> 
+                  Vacas secas 
+                  <span class="badge badge-dry pull-right">
+                    <%= tambo.cows.dry.count %>
+                  </span>
+                </a>
               </li>
               <li class="list-group-item">
-                <a href="#"> <i class="fa fa-dot-circle-o"></i> Vacas preñadas <span class="badge badge-danger pull-right">15</span></a>
+                <a href="#"> 
+                  <i class="fa fa-dot-circle-o"></i> 
+                  Vacas preñadas 
+                  <span class="badge badge-pregnant pull-right">
+                    <%= tambo.cows.pregnant.count %>
+                  </span>
+                </a>
               </li>
               <li class="list-group-item">
-                <a href="#"> <i class="fa fa-dot-circle-o"></i> Vacas operativas <span class="badge badge-success pull-right">11</span></a>
+                <a href="#"> 
+                  <i class="fa fa-dot-circle-o"></i> 
+                  Vacas vacía
+                  <span class="badge badge-empty pull-right">
+                   <%= tambo.cows.empty.count %>
+                  </span>
+                </a>
               </li>
               <li class="list-group-item">
-                <a href="#"> <i class="fa fa-dot-circle-o"></i> Terneros <span class="badge badge-warning pull-right r-activity">03</span></a>
+                <a href="#"> 
+                  <i class="fa fa-dot-circle-o"></i> 
+                  Vacas para descarte 
+                  <span class="badge badge-discard pull-right r-activity">
+                    <%= tambo.cows.discard.count %>
+                  </span>
+                </a>
               </li>
             </ul>
           </section>
