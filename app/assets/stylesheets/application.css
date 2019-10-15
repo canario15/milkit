@@ -113,3 +113,11 @@
   width: 22px;
   margin-bottom: 5px;
 }
+
+footer.site-footer {
+  padding: 0;
+}
+
+footer.site-footer .footer-inner {
+  padding: 1.125em;
+}
