@@ -39,6 +39,7 @@ jQuery(document).ready(function($) {
     }).done(function(data) {
       if ( data.status == 'OK') {
         $('#new_cow_modal').modal('hide');
+        $("#cow_form")[0].reset();
         document.location.reload();
       }else{
         if (data.errors.caravan) {
@@ -57,6 +58,36 @@ jQuery(document).ready(function($) {
     })
     .fail(function(data) {
     });
-
   });
+
+  $('#save_event').click(function (e) {
+    e.preventDefault();
+    $('#event_date_event').parent().parent().removeClass('error-field');
+    $('#event_action').parent().parent().removeClass('error-field');
+    $('#new_event_modal .span-err').remove();
+    $.ajax({
+      type    : 'POST',
+      url     : '/events',
+      data    : $('#event_form').serialize(),
+      dataType  : 'json'
+    }).done(function(data) {
+      if ( data.status == 'OK') {
+        $('#new_event_modal').modal('hide');
+        $("#event_form")[0].reset();
+        document.location.reload();
+      }else{
+        if (data.errors.date_event) {
+          $('#event_date_event').parent().parent().addClass('error-field');
+          $('#event_date_event').parent().append("<span class='span-err'> <i class='fa fa-exclamation-triangle'></i> "+ data.errors.date_event + "</span>");
+        }
+        if (data.errors.action) {
+          $('#event_action').parent().parent().addClass('error-field');
+          $('#event_action').parent().append("<span class='span-err'> <i class='fa fa-exclamation-triangle'></i> "+ data.errors.action + "</span>");
+        }
+      }
+    })
+    .fail(function(data) {
+    });
+  });
+
 });

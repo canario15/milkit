@@ -1,0 +1,62 @@
+<div class="card border border-status">
+  <div class="card-header">
+    <strong>Evento</strong>
+  </div>
+  <div class="card-body card-block">
+
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <label class="form-control-label">Vaca:</label>
+      </div>
+      <div class="col-12 col-md-9">
+        <input class="form-control" readonly="readonly" type="text" value=<%= @event.cow.caravan %>>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <label class="form-control-label">Fecha:</label>
+      </div>
+      <div class="col-12 col-md-9">
+        <input class="form-control" readonly="readonly" type="text" value=<%= @event.date_event %>>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <label class="form-control-label">Evento:</label>
+      </div>
+      <div class="col-12 col-md-9">
+        <input class="form-control" readonly="readonly" type="text" value=<%= @event.action_name %>>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <label class="form-control-label">Toro:</label>
+      </div>
+      <div class="col-12 col-md-9">
+        <input class="form-control" readonly="readonly" type="text" value=<%= @event.bull %>>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <label class="form-control-label">Notificación:</label>
+      </div>
+      <div class="col-12 col-md-9">
+        <input class="form-control" readonly="readonly" type="text" value=<%= @event.notification %>>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <label class="form-control-label">Observación:</label>
+      </div>
+      <div class="col-12 col-md-9">
+        <input class="form-control" readonly="readonly" type="text" value=<%= @event.observations %>>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <%= link_to 'Editar', edit_event_path(@event), class: "btn btn-secondary" %>
+    <%= link_to 'Atrás', cow_path(@event.cow), class: "btn btn-info" %>
+  </div>
+</div>

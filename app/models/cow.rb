@@ -8,6 +8,7 @@ class Cow < ApplicationRecord
   enum status: { dry: 1, pregnant: 2, discard: 3, empty: 4, dead: 5 }
 
   belongs_to :tambo
+  has_many :events
 
   validates :cow_type, presence: true
   validates :caravan, presence: true

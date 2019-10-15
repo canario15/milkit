@@ -18,6 +18,9 @@ es:
       cow:
         one: 'Vaca'
         other: 'Vacas'
+      event:
+        one: 'Evento'
+        other: 'Eventos'
     attributes:
       admin_user:
         email: 'Email'
@@ -56,6 +59,22 @@ es:
           discard: "Descarte"
           empty: "Vacía"
           dead: "Muerta"
+      event:
+        cow: 'Vaca'
+        cow_id: 'Vaca'
+        date_event: 'Fecha'
+        action: 'Evento'
+        bull: 'Toro'
+        notification: 'Notificación'
+        observations: 'Observación'
+        actions:
+          served: 'Servida'
+          pregnant: 'Preñada'
+          dry: 'Seca'
+          gave_birth: 'Parió'
+          empty: 'Vacía'
+          inseminate: 'Inseminada'
+
     errors:
       format: "%{attribute} %{message}"
       models:
@@ -79,6 +98,15 @@ es:
               blank: 'seleccione un tipo'
             status:
               blank: 'seleccione un estado'
+        event:
+          attributes:
+            cow:
+              blank: 'no puede ser vacío'
+              required: 'es requerido'
+            date_event:
+              blank: 'no puede ser vacío'
+            action:
+              blank: 'no puede ser vacío'
   time:
     formats:
       long: '%d de %B de %Y'

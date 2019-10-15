@@ -1,7 +1,8 @@
 class CowsController < InheritedResources::Base
-  
+
   before_action :authenticate_user!
   before_action :set_cow_and_tambos, only: %i[show edit update destroy]
+  skip_before_action :verify_authenticity_token
 
   def new
     @tambos = current_user.tambos
@@ -14,12 +15,16 @@ class CowsController < InheritedResources::Base
     respond_to do |format|
       if @cow.save
         format.html { redirect_to @cow, notice: 'Vaca creada con éxito.' }
-        format.json { render json: { :status =>  'OK', :message => 'Vaca creada con éxito.', :cow => @cow.to_json } }
+        format.json { render json: { status: 'OK', message: 'Vaca creada con éxito.', cow: @cow.to_json } }
       else
         format.html { render :new }
-        format.json { render json: { :status => 'ERROR', :errors => @cow.errors.messages } }
+        format.json { render json: { status: 'ERROR', errors: @cow.errors.messages } }
       end
     end
+  end
+
+  def show
+    @event = Event.new(cow_id: @cow.id)
   end
 
   private
@@ -30,6 +35,12 @@ class CowsController < InheritedResources::Base
   end
 
   def cow_params
-    params.require(:cow).permit(:caravan, :birth_date, :tambo_id, :status, :cow_type)
+    params.require(:cow).permit(
+      :caravan,
+      :birth_date,
+      :tambo_id,
+      :status,
+      :cow_type
+    )
   end
 end
