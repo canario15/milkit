@@ -5,7 +5,8 @@ class Cow < ApplicationRecord
   # Red    #ED2F15
   # Yellow #EDE515
   # Black  #010101
-  enum status: { dry: 1, pregnant: 2, discard: 3, empty: 4, dead: 5 }
+  # Pink   #BD12B3
+  enum status: { dry: 1, pregnant: 2, discard: 3, empty: 4, dead: 5, served: 6 }
 
   belongs_to :tambo
   has_many :events

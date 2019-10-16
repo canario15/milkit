@@ -5,7 +5,8 @@ module ApplicationHelper
             when 2 then '#221D8F'
             when 3 then '#ED2F15'
             when 4 then '#EDE515'
-            else '#010101'
+            when 5 then '#010101'
+            else '#BD12B3'
             end
     style_colors(color)
   end

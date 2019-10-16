@@ -59,6 +59,7 @@ es:
           discard: "Descarte"
           empty: "Vacía"
           dead: "Muerta"
+          served: 'Servida'
       event:
         cow: 'Vaca'
         cow_id: 'Vaca'
