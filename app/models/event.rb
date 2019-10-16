@@ -12,6 +12,8 @@ class Event < ApplicationRecord
   validates :date_event, presence: true
   validates :action, presence: true
 
+  default_scope { order(date_event: :asc) }
+
   def self.action_attributes_for_select
     actions.map do |action, _|
       [I18n.t("activerecord.attributes.event.actions.#{action}"),
