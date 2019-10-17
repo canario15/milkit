@@ -16,17 +16,18 @@
 <div class="card border border-secondary">
   <div class="card-header">
     <strong>
-      Plantel de vacas
+      Vacas en el Tambo
     </strong>
     <span class="float-right">
       <%= image_tag "1_cow_icon.png", class: "cow-reference" %> Seca - 
       <%= image_tag "2_cow_icon.png", class: "cow-reference" %> Preñada - 
       <%= image_tag "3_cow_icon.png", class: "cow-reference" %> Descarte - 
-      <%= image_tag "4_cow_icon.png", class: "cow-reference" %> Vacía
+      <%= image_tag "4_cow_icon.png", class: "cow-reference" %> Vacía - 
+      <%= image_tag "6_cow_icon.png", class: "cow-reference" %> Servida
     </span>
   </div>
   <div class="card-body card-block"> 
-    <% @vacas.each do |cow| %>
+    <% @vacas.no_empty.each do |cow| %>
       <%= link_to cow_path(cow) do %>
         <div class="cow-item">
           <%= image_tag "#{cow.status_number}_cow_icon.png" %></br>
@@ -39,6 +40,24 @@
           <i class="fa fa-plus-square cow-add-icon"></i></br>
           Agregar
       </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="card border border-secondary">
+  <div class="card-header">
+    <strong>
+      Vacas secas
+    </strong>
+  </div>
+  <div class="card-body card-block"> 
+    <% @vacas.empty.each do |cow| %>
+      <%= link_to cow_path(cow) do %>
+        <div class="cow-item">
+          <%= image_tag "#{cow.status_number}_cow_icon.png" %></br>
+          <%= cow.caravan %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

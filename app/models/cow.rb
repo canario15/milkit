@@ -18,9 +18,10 @@ class Cow < ApplicationRecord
   validates_uniqueness_of :caravan, scope: :tambo_id
 
   default_scope { where.not(status: :dead).order(caravan: :asc) }
-
+  scope :no_empty, -> { where.not(status: :empty) }
   scope :vacas, -> { where(cow_type: 1) }
   scope :vaquillonas, -> { where(cow_type: 2) }
+  scope :vaquillonas_tambo, -> { where(cow_type: 3) }
 
   def self.status_attributes_for_select
     statuses.map do |status, _|
