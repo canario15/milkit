@@ -6,7 +6,16 @@ class Cow < ApplicationRecord
   # Yellow #EDE515
   # Black  #010101
   # Pink   #BD12B3
-  enum status: { dry: 1, pregnant: 2, discard: 3, empty: 4, dead: 5, served: 6 }
+  enum status: { dry: 1,
+                 pregnant: 2,
+                 discard: 3,
+                 empty: 4,
+                 dead: 5,
+                 served: 6 }
+
+  enum cow_type: { cow: 1,
+                   small_cow: 2,
+                   small_cow_tambo: 3 }
 
   belongs_to :tambo
   has_many :events
@@ -18,7 +27,7 @@ class Cow < ApplicationRecord
   validates_uniqueness_of :caravan, scope: :tambo_id
 
   default_scope { where.not(status: :dead).order(caravan: :asc) }
-  scope :no_empty, -> { where.not(status: :empty) }
+  scope :no_dry, -> { where.not(status: :dry) }
   scope :vacas, -> { where(cow_type: [1, 3]) }
   scope :vaquillonas, -> { where(cow_type: 2) }
 
@@ -37,11 +46,26 @@ class Cow < ApplicationRecord
     I18n.t("activerecord.attributes.cow.statuses.#{status}")
   end
 
-  def caravan
-    if cow_type == 3
-      "#{self[:caravan]}-VQ"
+  def self.cow_type_attributes_for_select
+    cow_types.map do |cow_type, _|
+      [I18n.t("activerecord.attributes.cow.cow_types.#{cow_type}"),
+       cow_type]
+    end
+  end
+
+  def cow_type_number
+    read_attribute_before_type_cast(:cow_type)
+  end
+
+  def cow_type_name
+    I18n.t("activerecord.attributes.cow.cow_types.#{cow_type}")
+  end
+
+  def caravan_with_type
+    if cow_type_number == 3
+      "#{caravan}-VQ"
     else
-      self[:caravan]
+      caravan
     end
   end
 end

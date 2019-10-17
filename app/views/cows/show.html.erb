@@ -19,7 +19,7 @@
         -
       </span>
       <span class="cow-show-title">
-        <%= @cow.caravan %>
+        <%= @cow.caravan_with_type %>
       </span>
       <span class="cow-show-title">
         -
@@ -51,7 +51,7 @@
       <tbody>
         <% @cow.events.each do |event| %>
           <tr>
-            <td><%= @cow.caravan %></td>
+            <td><%= @cow.caravan_with_type %></td>
             <td><%= event.date_event%></td>
             <td><%= event.action_name %></td>
             <td><%= event.bull %></td>
@@ -116,7 +116,7 @@
                 <%= form.label :action, class: "form-control-label" %>
               </div>
               <div class="col-12 col-md-9">
-                <%= form.select :action, options_for_select(Event.action_attributes_for_select), :prompt => "Seleccione..", :class => "form-control"  %>
+                <%= form.select :action, options_for_select(Event.action_attributes_for_select, @event.action), :prompt => "Seleccione..", :class => "form-control"  %>
               </div>
             </div>
 
@@ -150,7 +150,7 @@
               </div>
             </div>
 
-          </div>    
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

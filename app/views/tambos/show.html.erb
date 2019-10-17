@@ -27,11 +27,11 @@
     </span>
   </div>
   <div class="card-body card-block"> 
-    <% @vacas.no_empty.each do |cow| %>
+    <% @vacas.no_dry.each do |cow| %>
       <%= link_to cow_path(cow) do %>
         <div class="cow-item">
           <%= image_tag "#{cow.status_number}_cow_icon.png" %></br>
-          <%= cow.caravan %>
+          <%= cow.caravan_with_type %>
         </div>
       <% end %>
     <% end %>
@@ -51,11 +51,11 @@
     </strong>
   </div>
   <div class="card-body card-block"> 
-    <% @vacas.empty.each do |cow| %>
+    <% @vacas.dry.each do |cow| %>
       <%= link_to cow_path(cow) do %>
         <div class="cow-item">
           <%= image_tag "#{cow.status_number}_cow_icon.png" %></br>
-          <%= cow.caravan %>
+          <%= cow.caravan_with_type %>
         </div>
       <% end %>
     <% end %>
@@ -73,7 +73,7 @@
       <%= link_to cow_path(cow) do %>
         <div class="cow-item">
           <%= image_tag "_cow_icon.png" %></br>
-          <%= cow.caravan %>
+          <%= cow.caravan_with_type %>
         </div>
       <% end %>
     <% end %>
@@ -279,7 +279,7 @@
                 <%= form.label :cow_type, class: "form-control-label" %>
               </div>
               <div class="col-12 col-md-9">
-                <%= select("cow", "cow_type",options_for_select([["Vaca", 1], ["Vaquillona", 2], ["Vaquillona en tambo", 3]]), :prompt => "Seleccione..", :class => "form-control") %>
+                <%= form.select :cow_type, options_for_select(Cow.cow_type_attributes_for_select), :prompt => "Seleccione..", :class => "form-control"  %>
               </div>
             </div>
             <div class="row form-group">

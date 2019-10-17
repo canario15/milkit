@@ -53,6 +53,10 @@ es:
         birth_date: 'Fecha Nacimiento'
         tambo: 'Establecimiento'
         status: 'Estado'
+        cow_types:
+          cow: 'Vaca'
+          small_cow: 'Vaquillona'
+          small_cow_tambo: 'Vaquillona en tambo'
         statuses:
           dry: "Seca"
           pregnant: "Preñada"
