@@ -63,7 +63,7 @@ class Cow < ApplicationRecord
 
   def caravan_with_type
     if cow_type_number == 3
-      "#{caravan}-VQ"
+      "#{caravan}VQ"
     else
       caravan
     end
