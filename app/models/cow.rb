@@ -19,9 +19,8 @@ class Cow < ApplicationRecord
 
   default_scope { where.not(status: :dead).order(caravan: :asc) }
   scope :no_empty, -> { where.not(status: :empty) }
-  scope :vacas, -> { where(cow_type: 1) }
+  scope :vacas, -> { where(cow_type: [1, 3]) }
   scope :vaquillonas, -> { where(cow_type: 2) }
-  scope :vaquillonas_tambo, -> { where(cow_type: 3) }
 
   def self.status_attributes_for_select
     statuses.map do |status, _|
@@ -36,5 +35,13 @@ class Cow < ApplicationRecord
 
   def status_name
     I18n.t("activerecord.attributes.cow.statuses.#{status}")
+  end
+
+  def caravan
+    if cow_type == 3
+      "#{self[:caravan]}-VQ"
+    else
+      self[:caravan]
+    end
   end
 end
