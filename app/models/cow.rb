@@ -1,17 +1,13 @@
-class Cow < ApplicationRecord
+# frozen_string_literal: true
 
-  # Green  #0FA20B
-  # Blue   #221D8F
-  # Red    #ED2F15
-  # Yellow #EDE515
-  # Black  #010101
-  # Pink   #BD12B3
-  enum status: { dry: 1,
-                 pregnant: 2,
-                 discard: 3,
-                 empty: 4,
-                 dead: 5,
-                 served: 6 }
+# Cow class
+class Cow < ApplicationRecord
+  enum status: { dry: 1,      # Green  #0FA20B
+                 pregnant: 2, # Blue   #221D8F
+                 discard: 3,  # Red    #ED2F15
+                 empty: 4,    # Yellow #EDE515
+                 dead: 5,     # Black  #010101
+                 served: 6 }  # Pink   #BD12B3
 
   enum cow_type: { cow: 1,
                    small_cow: 2,

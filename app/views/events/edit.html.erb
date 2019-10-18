@@ -24,7 +24,7 @@
               <%= form.label :action, class: "form-control-label" %>
             </div>
             <div class="col-12 col-md-9">
-              <%= form.select :action, options_for_select(Event.action_attributes_for_select), :prompt => "Seleccione..", :class => "form-control"  %>
+              <%= form.select :action, options_for_select(Event.action_attributes_for_select, @event.action), :prompt => "Seleccione..", :class => "form-control"  %>
             </div>
           </div>
 
