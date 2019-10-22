@@ -16,7 +16,7 @@ class Event < ApplicationRecord
 
   default_scope { order(date_event: :asc) }
 
-  after_validation :set_cow_status
+  after_save :set_cow_status
   after_destroy :set_cow_status
 
   def self.action_attributes_for_select

@@ -31,10 +31,13 @@ class EventsController < InheritedResources::Base
 
   def destroy
     cow = @event.cow
-    @event.destroy
     respond_to do |format|
-      format.html { redirect_to cow, notice: 'Se ha eliminado correctamente el evento.' }
-      format.json { head :no_content }
+      if cow.events.count == 1
+        format.html { redirect_to cow, notice: 'No se puede eliminar el primer evento' }
+      else
+        @event.destroy
+        format.html { redirect_to cow, notice: 'Se ha eliminado correctamente el evento.' }
+      end
     end
   end
 
