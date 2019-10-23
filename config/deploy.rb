@@ -2,7 +2,7 @@
 server '157.245.87.193', roles: %i[web app db], primary: true
 
 set :linked_files, %w{config/master.key}
-set :linked_dirs,  %w{storage/}
+#set :linked_dirs,  %w{storage/}
 
 set :repo_url,        'git@github.com:canario15/milkit.git'
 set :application,     'milkit'
