@@ -22,7 +22,7 @@ class Cow < ApplicationRecord
   validates :status, presence: true
   validates_uniqueness_of :caravan, scope: :tambo_id
 
-  default_scope { where.not(status: :dead).order(caravan: :asc) }
+  default_scope { where.not(status: :dead).order(status: :asc, cow_type: :asc, caravan: :asc) }
   scope :no_dry, -> { where.not(status: :dry) }
   scope :vacas, -> { where(cow_type: [1, 3]) }
   scope :vaquillonas, -> { where(cow_type: 2) }
