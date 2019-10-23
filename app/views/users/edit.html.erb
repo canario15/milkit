@@ -6,7 +6,11 @@
       <div class="card-body card-block">
         <div class="row form-group">
           <div class="col-12 col-md-9">
-            <%= image_tag(@user.display_avatar) %>
+            <% if  @user.avatar.attached? %>
+              <%= image_tag @user.avatar,  width: '109' %>
+            <% else %>
+              <%= image_tag 'defaut_avatar.png', width: '109' %>
+            <% end %>
           </div>
         </div>
         <div class="row form-group">
