@@ -17,12 +17,16 @@ class Cow < ApplicationRecord
   has_many :events
 
   validates :cow_type, presence: true
-  validates :caravan, presence: true
+  validates :caravan, presence: true, numericality: { only_integer: true }
   validates :tambo_id, presence: true
   validates :status, presence: true
   validates_uniqueness_of :caravan, scope: :tambo_id
 
-  default_scope { where.not(status: :dead).order(status: :asc, cow_type: :asc, caravan: :asc) }
+  default_scope do
+    where.not(status: :dead)
+         .order(status: :asc, cow_type: :asc)
+         .order('caravan::integer ASC')
+  end
   scope :no_dry, -> { where.not(status: :dry) }
   scope :vacas, -> { where(cow_type: [1, 3]) }
   scope :vaquillonas, -> { where(cow_type: 2) }

@@ -94,6 +94,7 @@ es:
             caravan:
               blank: 'no puede ser vacía'
               taken: 'ya existe esta caravana en el tambo'
+              not_a_number: 'tiene que ser un número'
             tambo:
               blank: 'no puede ser vacío'
               required: 'es requerido'
