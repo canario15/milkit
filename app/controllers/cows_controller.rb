@@ -27,6 +27,20 @@ class CowsController < InheritedResources::Base
     @event = Event.new(cow_id: @cow.id)
   end
 
+  def search_cow
+    @tambo = current_user.tambos.find(params[:tambo_id])
+    @cow = @tambo.cows.unscoped.find_by(caravan: params[:caravan])
+    respond_to do |format|
+      if @cow.nil?
+        format.html { redirect_to tambo_path(@tambo.id), notice: 'No existe esa caravana' }
+        format.json { render json: { errors: 'No se encontro vaca' } }
+      else
+        format.html { redirect_to cow_path(@cow.id) }
+        format.json { render json: { status: 'OK' } }
+      end
+    end
+  end
+
   private
 
   def set_cow_and_tambos
