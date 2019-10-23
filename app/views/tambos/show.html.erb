@@ -16,10 +16,9 @@
 <div class="card border border-secondary">
   <div class="card-header">
     <strong>
-      Vacas en el Tambo
+      Vacas en el Tambo: <%= @vacas.no_dry.count %>
     </strong>
     <span class="float-right">
-      <%= image_tag "1_cow_icon.png", class: "cow-reference" %> Seca - 
       <%= image_tag "2_cow_icon.png", class: "cow-reference" %> Preñada - 
       <%= image_tag "3_cow_icon.png", class: "cow-reference" %> Descarte - 
       <%= image_tag "4_cow_icon.png", class: "cow-reference" %> Vacía - 
@@ -27,6 +26,12 @@
     </span>
   </div>
   <div class="card-body card-block"> 
+    <%= link_to new_cow_path, :data => { :toggle => 'modal', :target => '#new_cow_modal' } do %>
+      <div class="cow-item">
+          <i class="fa fa-plus-square cow-add-icon"></i></br>
+          Agregar
+      </div>
+    <% end %>
     <% @vacas.no_dry.each do |cow| %>
       <%= link_to cow_path(cow) do %>
         <div class="cow-item">
@@ -35,20 +40,17 @@
         </div>
       <% end %>
     <% end %>
-    <%= link_to new_cow_path, :data => { :toggle => 'modal', :target => '#new_cow_modal' } do %>
-      <div class="cow-item">
-          <i class="fa fa-plus-square cow-add-icon"></i></br>
-          Agregar
-      </div>
-    <% end %>
   </div>
 </div>
 
 <div class="card border border-secondary">
   <div class="card-header">
     <strong>
-      Vacas secas
+      Vacas secas: <%= @vacas.dry.count %>
     </strong>
+    <span class="float-right">
+      <%= image_tag "1_cow_icon.png", class: "cow-reference" %> Seca
+    </span>
   </div>
   <div class="card-body card-block"> 
     <% @vacas.dry.each do |cow| %>
@@ -65,10 +67,16 @@
 <div class="card border border-secondary">
   <div class="card-header">
     <strong>
-      Plantel de vaquillonas
+      Plantel de vaquillonas: <%= @vaquillonas.count %>
     </strong>
   </div>
   <div class="card-body card-block"> 
+    <%= link_to new_cow_path, :data => { :toggle => 'modal', :target => '#new_cow_modal' } do %>
+      <div class="cow-item">
+          <i class="fa fa-plus-square cow-add-icon"></i></br>
+          Agregar
+      </div>
+    <% end %>
     <% @vaquillonas.each do |cow| %>
       <%= link_to cow_path(cow) do %>
         <div class="cow-item">
@@ -76,12 +84,6 @@
           <%= cow.caravan_with_type %>
         </div>
       <% end %>
-    <% end %>
-    <%= link_to new_cow_path, :data => { :toggle => 'modal', :target => '#new_cow_modal' } do %>
-      <div class="cow-item">
-          <i class="fa fa-plus-square cow-add-icon"></i></br>
-          Agregar
-      </div>
     <% end %>
   </div>
 </div>
