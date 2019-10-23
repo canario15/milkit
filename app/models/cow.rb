@@ -24,7 +24,6 @@ class Cow < ApplicationRecord
 
   default_scope do
     where.not(status: :dead)
-         .order(status: :asc, cow_type: :asc)
          .order('caravan::integer ASC')
   end
   scope :no_dry, -> { where.not(status: :dry) }
