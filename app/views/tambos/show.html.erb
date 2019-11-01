@@ -15,10 +15,9 @@
 
 <div class="card border border-secondary">
   <div class="card-header" style="border-bottom:none">
-    <%= form_tag(search_cow_path, method: :get) do %>
+    <%= form_tag(tambo_search_cow_path(@tambo), method: :get) do %>
       <div class="input-group">
         <%= text_field_tag(:caravan, params[:caravan], placeholder: "ingrese numero de caravana", class: "form-control") %>
-        <%= hidden_field_tag :tambo_id, @tambo.id %>
         <div class="input-group-btn">
           <%= submit_tag "Buscar", class: "btn btn-primary" %>
         </div>
@@ -40,14 +39,14 @@
     </span>
   </div>
   <div class="card-body card-block"> 
-    <%= link_to new_cow_path, :data => { :toggle => 'modal', :target => '#new_cow_modal' } do %>
+    <%= link_to new_tambo_cow_path(@tambo), :data => { :toggle => 'modal', :target => '#new_cow_modal' } do %>
       <div class="cow-item">
-          <i class="fa fa-plus-square cow-add-icon"></i></br>
-          Agregar
+        <i class="fa fa-plus-square cow-add-icon"></i></br>
+        Agregar
       </div>
     <% end %>
     <% @vacas.no_dry.each do |cow| %>
-      <%= link_to cow_path(cow) do %>
+      <%= link_to tambo_cow_path(@tambo, cow) do %>
         <div class="cow-item">
           <%= image_tag "#{cow.status_number}_cow_icon.png" %></br>
           <%= cow.caravan_with_type %>
@@ -68,7 +67,7 @@
   </div>
   <div class="card-body card-block"> 
     <% @vacas.dry.each do |cow| %>
-      <%= link_to cow_path(cow) do %>
+      <%= link_to tambo_cow_path(cow) do %>
         <div class="cow-item">
           <%= image_tag "#{cow.status_number}_cow_icon.png" %></br>
           <%= cow.caravan_with_type %>
@@ -85,14 +84,14 @@
     </strong>
   </div>
   <div class="card-body card-block"> 
-    <%= link_to new_cow_path, :data => { :toggle => 'modal', :target => '#new_cow_modal' } do %>
+    <%= link_to new_tambo_cow_path(@tambo), :data => { :toggle => 'modal', :target => '#new_cow_modal' } do %>
       <div class="cow-item">
           <i class="fa fa-plus-square cow-add-icon"></i></br>
           Agregar
       </div>
     <% end %>
     <% @vaquillonas.each do |cow| %>
-      <%= link_to cow_path(cow) do %>
+      <%= link_to tambo_cow_path(cow) do %>
         <div class="cow-item">
             <%= image_tag "#{cow.status_number}_cow_icon.png" %></br>
           <%= cow.caravan_with_type %>
@@ -281,67 +280,14 @@
     </div>
   </div>
 </div>
+
 <div class="modal fade" id="new_cow_modal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="largeModalLabel"> <strong>Nueva Vaca</strong></h5>
       </div>
-      <%= form_with(model: @cow, local: true, id: "cow_form", class: "form-horizontal") do |form| %>
-        <div class="modal-body">
-          <div class="card-body card-block">
-            <div class="row form-group">
-              <div class="col col-md-3">
-                <%= form.label :cow_type, class: "form-control-label" %>
-              </div>
-              <div class="col-12 col-md-9">
-                <%= form.select :cow_type, options_for_select(Cow.cow_type_attributes_for_select), :prompt => "Seleccione..", :class => "form-control"  %>
-              </div>
-            </div>
-            <div class="row form-group">
-              <div class="col col-md-3">
-                <%= form.label :status, class: "form-control-label" %>
-              </div>
-              <div class="col-12 col-md-9">
-                <%= form.select :status, options_for_select(Cow.status_attributes_for_select), :prompt => "Seleccione..", :class => "form-control"  %>
-              </div>
-            </div>
-            <div class="row form-group">
-              <div class="col col-md-3">
-                <%= form.label :caravan, class: "form-control-label" %>
-              </div>
-              <div class="col-12 col-md-9">
-                <%= form.text_field :caravan, class: "form-control" %>
-              </div>
-            </div>
-        
-            <div class="row form-group">
-              <div class="col col-md-3">
-                <%= form.label :birth_date, class: "form-control-label" %>
-              </div>
-              <div class="col-12 col-md-9 input-group date" data-provide="datepicker">
-                <%= form.text_field :birth_date, class: "form-control" %>
-                <div class="input-group-addon">
-                  <span class="fa fa-calendar"></span>
-                </div>
-              </div>
-            </div>
-        
-            <div class="row form-group">
-              <div class="col col-md-3">
-                <%= form.label :tambo_id, class: "form-control-label" %>
-              </div>
-              <div class="col-12 col-md-9">
-                <%= form.select :tambo_id, options_for_select([[@tambo, @tambo.id]])%>
-              </div>
-            </div>
-          </div>    
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <%= form.submit "Guardar", id: "save_cow", class: "btn btn-info" %>
-        </div>
-      <% end %>
+      <%= render partial: "/cows/form" %>
     </div>
   </div>
 </div>

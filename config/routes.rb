@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :cows, except: %i[index delete]
-  get 'search_cow', to: 'cows#search_cow'
-  resources :tambos
+  resources :tambos do
+    resources :cows, except: %i[index delete ]
+    get 'search_cow', to: 'cows#search_cow'
+  end
 
   resources :events, except: %i[index]
 

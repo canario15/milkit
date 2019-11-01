@@ -28,27 +28,28 @@ jQuery(document).ready(function($) {
   $('#save_cow').click(function (e) {
     e.preventDefault();
     $('#cow_caravan').parent().parent().removeClass('error-field');
-    $('#cow_tambo_id').parent().parent().removeClass('error-field');
+    $('#cow_status').parent().parent().removeClass('error-field');
     $('#cow_cow_type').parent().parent().removeClass('error-field');
     $('#new_cow_modal .span-err').remove();
     $.ajax({
       type    : 'POST',
-      url     : '/cows',
+      url     : $('#cow_form').attr('action'),
       data    : $('#cow_form').serialize(),
       dataType  : 'json'
     }).done(function(data) {
       if ( data.status == 'OK') {
         $('#new_cow_modal').modal('hide');
         $("#cow_form")[0].reset();
-        document.location.reload();
+        debugger
+        window.location.replace("/tambos/"+ data.tambo_id + "/cows/" + data.cow_id );
       }else{
         if (data.errors.caravan) {
           $('#cow_caravan').parent().parent().addClass('error-field');
           $('#cow_caravan').parent().append("<span class='span-err'> <i class='fa fa-exclamation-triangle'></i> "+ data.errors.caravan + "</span>");
         }
-        if (data.errors.tambo_id) {
-          $('#cow_tambo_id').parent().parent().addClass('error-field');
-          $('#cow_tambo_id').parent().append("<span class='span-err'> <i class='fa fa-exclamation-triangle'></i> "+ data.errors.tambo_id + "</span>");
+        if (data.errors.status) {
+          $('#cow_status').parent().parent().addClass('error-field');
+          $('#cow_status').parent().append("<span class='span-err'> <i class='fa fa-exclamation-triangle'></i> "+ data.errors.status + "</span>");
         }
         if (data.errors.cow_type) {
           $('#cow_cow_type').parent().parent().addClass('error-field');
