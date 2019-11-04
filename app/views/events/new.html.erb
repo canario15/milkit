@@ -2,20 +2,11 @@
   <div class="card-header">
     <strong>Nuevo Evento</strong>
   </div>
-  <div class="card-body card-block">
-    <%= form_with(model: @event, local: true, id: "event_form", class: "form-horizontal") do |form| %>  
+  <div class="card-body card-block">  
+    <%= form_with(model: @event, url: [@tambo, @cow, @event], id: "event_form", class: "form-horizontal") do |form| %>    
       <div class="modal-body">
         <div class="card-body card-block">
           
-          <div class="row form-group">
-            <div class="col col-md-3">
-              <%= form.label :cow_id, class: "form-control-label" %>
-            </div>
-            <div class="col-12 col-md-9">
-              <%= form.text_field :cow_id, class: "form-control", readonly: true%>
-            </div>
-          </div>
-
           <div class="row form-group">
             <div class="col col-md-3">
               <%= form.label :date_event, class: "form-control-label" %>

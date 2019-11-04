@@ -2,12 +2,11 @@
 
 Rails.application.routes.draw do
   resources :tambos do
-    resources :cows, except: %i[index delete ]
+    resources :cows, except: %i[index delete] do
+      resources :events, except: %i[index]
+    end
     get 'search_cow', to: 'cows#search_cow'
   end
-
-  resources :events, except: %i[index]
-
   devise_for :users, skip:  %i[registration]
   resources :users, only: %i[show update edit]
   get '/user/calendar', to: 'users#calendar'

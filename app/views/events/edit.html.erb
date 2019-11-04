@@ -3,7 +3,7 @@
     <strong>Editar Evento</strong>
   </div>
   <div class="card-body card-block">
-    <%= form_with(model: @event, local: true, id: "event_form", class: "form-horizontal") do |form| %>  
+    <%= form_with(model: @event, url: [@tambo, @cow, @event], id: "event_form", class: "form-horizontal") do |form| %>  
       <div class="modal-body">
         <div class="card-body card-block">
           
@@ -58,10 +58,10 @@
             </div>
           </div>
 
-        </div>    
+        </div>
       </div>
       <div class="modal-footer">
-        <%= link_to 'Cancelar', cow_path(@event.cow), class: "btn btn-secondary" %>
+        <%= link_to 'Cancelar', tambo_cow_path(@event.cow.tambo, @event.cow), class: "btn btn-secondary" %>
         <%= form.submit "Guardar", class: "btn btn-info" %>
       </div>
     <% end %>

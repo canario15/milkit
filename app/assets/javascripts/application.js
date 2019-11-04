@@ -68,7 +68,7 @@ jQuery(document).ready(function($) {
     $('#new_event_modal .span-err').remove();
     $.ajax({
       type    : 'POST',
-      url     : '/events',
+      url     : $('#event_form').attr('action'),
       data    : $('#event_form').serialize(),
       dataType  : 'json'
     }).done(function(data) {
