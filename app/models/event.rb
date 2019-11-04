@@ -6,8 +6,7 @@ class Event < ApplicationRecord
                  pregnant: 2,
                  dry: 3,
                  gave_birth: 4,
-                 empty: 5,
-                 inseminate: 6 }
+                 empty: 5 }
 
   belongs_to :cow
 
