@@ -20,6 +20,9 @@
 //= require main.js
 //= require bootstrap-datepicker.min.js
 //= require bootstrap-datepicker.es.min.js
+//= require datatables.min.js
+//= require dataTables.bootstrap.min.js
+//= require datatables-init.js
 
 
 jQuery(document).ready(function($) {
@@ -90,5 +93,7 @@ jQuery(document).ready(function($) {
     .fail(function(data) {
     });
   });
+
+  $('#bootstrap-data-table').DataTable();
 
 });

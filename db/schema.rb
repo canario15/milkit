@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_13_131033) do
+ActiveRecord::Schema.define(version: 2019_10_25_223441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,11 @@ ActiveRecord::Schema.define(version: 2019_10_13_131033) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "cow_type"
+    t.date "due_date"
+    t.integer "service_num"
+    t.date "service_date"
+    t.date "date"
+    t.string "bull"
     t.index ["tambo_id"], name: "index_cows_on_tambo_id"
   end
 

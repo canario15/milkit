@@ -67,4 +67,17 @@ class Cow < ApplicationRecord
       caravan
     end
   end
+
+  def count_served_after_gave_birth
+    date_last_event_gave_birth = events.gave_birth.try(:last).try(:date_event)
+    events.served.where('date_event >= ?', date_last_event_gave_birth).count
+  end
+
+  def last_due_date
+    events.gave_birth.try(:last).try(:date_event)
+  end
+
+  def last_service_date
+    events.served.try(:last).try(:date_event)
+  end
 end
