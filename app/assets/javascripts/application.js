@@ -94,6 +94,31 @@ jQuery(document).ready(function($) {
     });
   });
 
-  $('#bootstrap-data-table').DataTable();
+  $('#bootstrap-data-table-2').DataTable({
+    "ordering": false,
+    "columnDefs": [
+      { "targets": [1,2,3,4,5], "searchable": false }
+    ],
+    "language": {
+      "processing":     "Procesando...",
+      "lengthMenu":     "Mostrar _MENU_ registros",
+      "zeroRecords":    "No se encontraron resultados",
+      "emptyTable":     "Ningún dato disponible en esta tabla =(",
+      "info":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+      "infoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+      "infoFiltered":   "(filtrado de un total de _MAX_ registros)",
+      "infoPostFix":    "",
+      "search":         "Buscar:",
+      "url":            "",
+      "infoThousands":  ",",
+      "loadingRecords": "Cargando...",
+      "paginate": {
+          "first":    "Primero",
+          "last":     "Último",
+          "next":     "Siguiente",
+          "previous": "Anterior"
+      }
+    }
+  });
 
 });
