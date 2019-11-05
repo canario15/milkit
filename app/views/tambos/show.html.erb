@@ -13,96 +13,136 @@
   </div>
 </div>
 
-<div class="card border border-secondary">
-  <div class="card-header" style="border-bottom:none">
-    <%= form_tag(tambo_search_cow_path(@tambo), method: :get) do %>
-      <div class="input-group">
-        <%= text_field_tag(:caravan, params[:caravan], placeholder: "ingrese numero de caravana", class: "form-control") %>
-        <div class="input-group-btn">
-          <%= submit_tag "Buscar", class: "btn btn-primary" %>
+<div id="accordion">
+
+  <div class="card border border-secondary">
+    <div class="card-header" id="headingOne" style="border-bottom:none">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <strong>
+            Buscar
+          </strong>
+        </button>
+      </h5>
+    </div>
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        <%= form_tag(tambo_search_cow_path(@tambo), method: :get) do %>
+          <div class="input-group">
+            <%= text_field_tag(:caravan, params[:caravan], placeholder: "ingrese numero de caravana", class: "form-control") %>
+            <div class="input-group-btn">
+              <%= submit_tag "Buscar", class: "btn btn-primary" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card border border-secondary">
+    <div class="card-header" id="headingTwo">
+      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <strong>
+          Vacas en el Tambo: <%= @vacas.no_dry.count %>
+        </strong>
+      </button>
+      <span class="float-right">
+        <%= image_tag "2_cow_icon.png", class: "cow-reference" %> Preñada - 
+        <%= image_tag "3_cow_icon.png", class: "cow-reference" %> Descarte - 
+        <%= image_tag "4_cow_icon.png", class: "cow-reference" %> Vacía - 
+        <%= image_tag "6_cow_icon.png", class: "cow-reference" %> Servida
+      </span>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body card-block"> 
+        <%= link_to new_tambo_cow_path(@tambo), :data => { :toggle => 'modal', :target => '#new_cow_modal' } do %>
+          <div class="cow-item">
+            <i class="fa fa-plus-square cow-add-icon"></i></br>
+            Agregar
+          </div>
+        <% end %>
+        <% @vacas.no_dry.each do |cow| %>
+          <%= link_to tambo_cow_path(@tambo, cow) do %>
+            <div class="cow-item">
+              <%= image_tag "#{cow.status_number}_cow_icon.png" %></br>
+              <%= cow.caravan_with_type %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card border border-secondary">
+    <div class="card-header" id="headingThree">
+      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        <strong>
+          Vacas secas: <%= @vacas.dry.count %>
+        </strong>
+      </button>
+      <span class="float-right">
+        <%= image_tag "1_cow_icon.png", class: "cow-reference" %> Seca
+      </span>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body card-block"> 
+        <% @vacas.dry.each do |cow| %>
+          <%= link_to tambo_cow_path(@tambo, cow) do %>
+            <div class="cow-item">
+              <%= image_tag "#{cow.status_number}_cow_icon.png" %></br>
+              <%= cow.caravan_with_type %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card border border-secondary">
+    <div class="card-header" id="headingFor">
+      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFor" aria-expanded="false" aria-controls="collapseFor">
+        <strong>
+          Plantel de vaquillonas: <%= @vaquillonas.count %>
+        </strong>
+      </button>
+    </div>
+    <div id="collapseFor" class="collapse" aria-labelledby="headingFor" data-parent="#accordion">
+      <div class="card-body card-block"> 
+        <%= link_to new_tambo_cow_path(@tambo), :data => { :toggle => 'modal', :target => '#new_cow_modal' } do %>
+          <div class="cow-item">
+              <i class="fa fa-plus-square cow-add-icon"></i></br>
+              Agregar
+          </div>
+        <% end %>
+        <% @vaquillonas.each do |cow| %>
+          <%= link_to tambo_cow_path(cow) do %>
+            <div class="cow-item">
+                <%= image_tag "#{cow.status_number}_cow_icon.png" %></br>
+              <%= cow.caravan_with_type %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card border border-secondary">
+    <div class="card-header" id="headingFive">
+      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+        <strong>
+          Tabla
+        </strong>
+      </button>
+    </div>
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+      <div class="card-body">
+        <div class="animated fadeIn border border-secondary">
+        <%= render partial: "table_cow" %>
         </div>
       </div>
-    <% end %>
+    </div>
   </div>
-</div>
 
-<div class="card border border-secondary">
-  <div class="card-header">
-    <strong>
-      Vacas en el Tambo: <%= @vacas.no_dry.count %>
-    </strong>
-    <span class="float-right">
-      <%= image_tag "2_cow_icon.png", class: "cow-reference" %> Preñada - 
-      <%= image_tag "3_cow_icon.png", class: "cow-reference" %> Descarte - 
-      <%= image_tag "4_cow_icon.png", class: "cow-reference" %> Vacía - 
-      <%= image_tag "6_cow_icon.png", class: "cow-reference" %> Servida
-    </span>
-  </div>
-  <div class="card-body card-block"> 
-    <%= link_to new_tambo_cow_path(@tambo), :data => { :toggle => 'modal', :target => '#new_cow_modal' } do %>
-      <div class="cow-item">
-        <i class="fa fa-plus-square cow-add-icon"></i></br>
-        Agregar
-      </div>
-    <% end %>
-    <% @vacas.no_dry.each do |cow| %>
-      <%= link_to tambo_cow_path(@tambo, cow) do %>
-        <div class="cow-item">
-          <%= image_tag "#{cow.status_number}_cow_icon.png" %></br>
-          <%= cow.caravan_with_type %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-
-<div class="card border border-secondary">
-  <div class="card-header">
-    <strong>
-      Vacas secas: <%= @vacas.dry.count %>
-    </strong>
-    <span class="float-right">
-      <%= image_tag "1_cow_icon.png", class: "cow-reference" %> Seca
-    </span>
-  </div>
-  <div class="card-body card-block"> 
-    <% @vacas.dry.each do |cow| %>
-      <%= link_to tambo_cow_path(cow) do %>
-        <div class="cow-item">
-          <%= image_tag "#{cow.status_number}_cow_icon.png" %></br>
-          <%= cow.caravan_with_type %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-
-<div class="card border border-secondary">
-  <div class="card-header">
-    <strong>
-      Plantel de vaquillonas: <%= @vaquillonas.count %>
-    </strong>
-  </div>
-  <div class="card-body card-block"> 
-    <%= link_to new_tambo_cow_path(@tambo), :data => { :toggle => 'modal', :target => '#new_cow_modal' } do %>
-      <div class="cow-item">
-          <i class="fa fa-plus-square cow-add-icon"></i></br>
-          Agregar
-      </div>
-    <% end %>
-    <% @vaquillonas.each do |cow| %>
-      <%= link_to tambo_cow_path(cow) do %>
-        <div class="cow-item">
-            <%= image_tag "#{cow.status_number}_cow_icon.png" %></br>
-          <%= cow.caravan_with_type %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-
-<div class="animated fadeIn border border-secondary">
-    <%= render partial: "table_cow" %>
 </div>
 
 <div class="modal fade" id="new_cow_modal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
