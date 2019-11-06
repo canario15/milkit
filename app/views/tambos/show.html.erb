@@ -16,14 +16,10 @@
 <div id="accordion">
 
   <div class="card border border-secondary">
-    <div class="card-header" id="headingOne" style="border-bottom:none">
-      <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          <strong>
-            Buscar
-          </strong>
-        </button>
-      </h5>
+    <div id="headingOne" class="card-header hand-mouse" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="border-bottom:none">
+      <strong>
+        Buscar
+      </strong>
     </div>
     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
@@ -40,12 +36,10 @@
   </div>
 
   <div class="card border border-secondary">
-    <div class="card-header" id="headingTwo">
-      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        <strong>
-          Vacas en el Tambo: <%= @vacas.no_dry.count %>
-        </strong>
-      </button>
+    <div id="headingTwo" class="card-header hand-mouse" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+      <strong>
+        Vacas en el Tambo: <%= @vacas.no_dry.count %>
+      </strong>
       <span class="float-right">
         <%= image_tag "2_cow_icon.png", class: "cow-reference" %> Preñada - 
         <%= image_tag "3_cow_icon.png", class: "cow-reference" %> Descarte - 
@@ -74,12 +68,10 @@
   </div>
 
   <div class="card border border-secondary">
-    <div class="card-header" id="headingThree">
-      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        <strong>
-          Vacas secas: <%= @vacas.dry.count %>
-        </strong>
-      </button>
+    <div id="headingThree" class="card-header hand-mouse" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+      <strong>
+        Vacas secas: <%= @vacas.dry.count %>
+      </strong>
       <span class="float-right">
         <%= image_tag "1_cow_icon.png", class: "cow-reference" %> Seca
       </span>
@@ -99,12 +91,10 @@
   </div>
 
   <div class="card border border-secondary">
-    <div class="card-header" id="headingFor">
-      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFor" aria-expanded="false" aria-controls="collapseFor">
-        <strong>
-          Plantel de vaquillonas: <%= @vaquillonas.count %>
-        </strong>
-      </button>
+    <div id="headingFor" class="card-header hand-mouse" data-toggle="collapse" data-target="#collapseFor" aria-expanded="false" aria-controls="collapseFor">
+      <strong>
+        Plantel de vaquillonas: <%= @vaquillonas.count %>
+      </strong>
     </div>
     <div id="collapseFor" class="collapse" aria-labelledby="headingFor" data-parent="#accordion">
       <div class="card-body card-block"> 
@@ -127,12 +117,10 @@
   </div>
 
   <div class="card border border-secondary">
-    <div class="card-header" id="headingFive">
-      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-        <strong>
-          Tabla
-        </strong>
-      </button>
+    <div id="headingFive" class="card-header hand-mouse" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+      <strong>
+        Tabla
+      </strong>
     </div>
     <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
       <div class="card-body">

@@ -14,30 +14,10 @@
  *= require_self
  */
  
-.right-panel .navbar-brand img {
+ .right-panel .navbar-brand img {
   max-width: 226px;
 }
 
-/*
-.border-secondary {
-  border-color:#3ed22f !important;
-}
-.card-header {
-  border-bottom: 1px solid #3ed22f;
-}
-.card .card-footer {
-  border-top: 1px solid #3ed22f;
-}
-.modal-content {
-  border: 1px solid #3ed22f;
-}
-.modal-header {
-  border-bottom: 1px solid #3ed22f;
-}
-.modal-footer {
-  border-top: 1px solid #3ed22f;
-}
-*/
 .error-field span {
   color: #dc3545;
 }
@@ -120,4 +100,8 @@ footer.site-footer {
 
 footer.site-footer .footer-inner {
   padding: 1.125em;
+}
+
+.hand-mouse {
+  cursor:pointer;
 }
