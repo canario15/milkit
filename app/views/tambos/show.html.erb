@@ -13,28 +13,26 @@
   </div>
 </div>
 
-<div id="accordion">
 
-  <div class="card border border-secondary">
-    <div id="headingOne" class="card-header hand-mouse" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="border-bottom:none">
-      <strong>
-        Buscar
-      </strong>
-    </div>
-    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="card-body">
-        <%= form_tag(tambo_search_cow_path(@tambo), method: :get) do %>
-          <div class="input-group">
-            <%= text_field_tag(:caravan, params[:caravan], placeholder: "ingrese numero de caravana", class: "form-control") %>
-            <div class="input-group-btn">
-              <%= submit_tag "Buscar", class: "btn btn-primary" %>
-            </div>
-          </div>
-        <% end %>
+<div class="card border border-secondary">
+  <div class="card-header">
+    <strong>
+      Buscar
+    </strong>
+  </div>
+  <div class="card-body">
+    <%= form_tag(tambo_search_cow_path(@tambo), method: :get) do %>
+    <div class="input-group">
+      <%= text_field_tag(:caravan, params[:caravan], placeholder: "ingrese numero de caravana", class: "form-control") %>
+      <div class="input-group-btn">
+        <%= submit_tag "Buscar", class: "btn btn-primary" %>
       </div>
     </div>
+    <% end %>
   </div>
-
+</div>
+  
+<div id="accordion">
   <div class="card border border-secondary">
     <div id="headingTwo" class="card-header hand-mouse" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
       <strong>
@@ -124,7 +122,7 @@
       <div class="card-body">
           <%= render partial: "table_cow" %>
       </div>
-    <div>
+    </div>
   </div>
 
 </div>

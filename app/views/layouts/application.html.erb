@@ -7,12 +7,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'false' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'false' %>
   </head>
   
   <body>
     <%= render partial: "/layouts/left_panel" %>
     <%= render partial: "/layouts/right_panel" %>
   </body>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </html>
