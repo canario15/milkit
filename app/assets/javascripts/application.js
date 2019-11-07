@@ -12,9 +12,7 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks  
 //= require jquery.min.js
-//= require jquery.turbolinks
 //= require popper.min.js
 //= require bootstrap.min.js
 //= require jquery.matchHeight.min.js
