@@ -7,6 +7,7 @@ class EventsController < InheritedResources::Base
   def new
     @tambo = current_user.tambos.find(params[:tambo_id])
     @cow = @tambo.cows.find(params[:cow_id])
+    @event = Event.new
   end
 
   def create
@@ -29,7 +30,7 @@ class EventsController < InheritedResources::Base
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to tambo_cow_path(@tambo, @cow), notice: 'El evento actualizado correctamente.' }
-        format.json { render json: { status: 'OK', message: 'Evento actualizado con éxito.', event: @event.to_json } }
+        format.json { render json: { status: 'OK', message: 'Evento actualizado con éxito.', cow_id: @event.cow.id, tambo_id: @event.cow.tambo.id } }
       else
         format.html { render :edit }
         format.json { render json: { status: 'ERROR', errors: @event.errors.messages } }

@@ -1,4 +1,4 @@
-<%= form_with(model: @event, url: [@tambo, @cow, @event], id: "event_form", class: "form-horizontal") do |form| %>  
+<%= form_with(model: @event, url: [@tambo, @cow, @event], id: "", local: true, class: "form-horizontal") do |form| %>  
   <div class="modal-body">
     <div class="card-body card-block">
 
@@ -48,6 +48,6 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-    <%= form.submit "Guardar", id: "save_event", class: "btn btn-info" %>
+    <%= form.submit "Guardar", class: "btn btn-info" %>
   </div>
 <% end %>

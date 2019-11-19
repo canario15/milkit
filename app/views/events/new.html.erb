@@ -3,7 +3,7 @@
     <strong>Nuevo Evento</strong>
   </div>
   <div class="card-body card-block">  
-    <%= form_with(model: @event, url: [@tambo, @cow, @event], id: "event_form", class: "form-horizontal") do |form| %>    
+    <%= form_with(model: @event, url: [@tambo, @cow, @event], local: true, id: "event_form", class: "form-horizontal") do |form| %>    
       <div class="modal-body">
         <div class="card-body card-block">
           

@@ -4,8 +4,12 @@ class CowsController < InheritedResources::Base
   skip_before_action :verify_authenticity_token
 
   def new
-    @tambos = current_user.tambos
+    @tambo = current_user.tambos.find(params[:tambo_id])
     @cow = Cow.new
+    respond_to do |format|
+      format.html
+      format.js { render layout: false }
+    end
   end
 
   def create
@@ -31,7 +35,7 @@ class CowsController < InheritedResources::Base
     respond_to do |format|
       if @cow.update(cow_params)
         format.html { redirect_to tambo_cow_path(@tambo, @cow), notice: 'La vaca se ha actualizado correctamente.' }
-        format.json { redirect_to tambo_cow_path(@tambo, @cow), notice: 'La vaca se ha actualizado correctamente.' }
+        format.json { render json: { status: 'OK', message: 'Vaca actualizada con éxito.', cow_id: @cow.id, tambo_id: @tambo.id } }
       else
         format.html { render :edit }
         format.json { render json: @cow.errors, status: :unprocessable_entity }
