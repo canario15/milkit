@@ -18,8 +18,12 @@ class CowsController < InheritedResources::Base
     @cow.tambo = @tambo
     respond_to do |format|
       if @cow.save
-        format.html { redirect_to tambo_cow_path(@tambo, @cow), notice: 'Vaca creada con éxito.' }
-        format.json { render json: { status: 'OK', message: 'Vaca creada con éxito.', cow_id: @cow.id, tambo_id: @tambo.id } }
+        if @cow.dead?
+          format.html { redirect_to tambo_path(@tambo), notice: 'Vaca creada con éxito.' }
+        else
+          format.html { redirect_to tambo_cow_path(@tambo, @cow), notice: 'Vaca creada con éxito.' }
+          format.json { render json: { status: 'OK', message: 'Vaca creada con éxito.', cow_id: @cow.id, tambo_id: @tambo.id } }
+        end
       else
         format.html { render :new }
         format.json { render json: { status: 'ERROR', errors: @cow.errors.messages } }
@@ -34,8 +38,12 @@ class CowsController < InheritedResources::Base
   def update
     respond_to do |format|
       if @cow.update(cow_params)
-        format.html { redirect_to tambo_cow_path(@tambo, @cow), notice: 'La vaca se ha actualizado correctamente.' }
-        format.json { render json: { status: 'OK', message: 'Vaca actualizada con éxito.', cow_id: @cow.id, tambo_id: @tambo.id } }
+        if @cow.dead?
+          format.html { redirect_to tambo_path(@tambo), notice: 'La vaca se ha actualizado correctamente.' }
+        else
+          format.html { redirect_to tambo_cow_path(@tambo, @cow), notice: 'La vaca se ha actualizado correctamente.' }
+          format.json { render json: { status: 'OK', message: 'Vaca actualizada con éxito.', cow_id: @cow.id, tambo_id: @tambo.id } }
+        end
       else
         format.html { render :edit }
         format.json { render json: @cow.errors, status: :unprocessable_entity }
