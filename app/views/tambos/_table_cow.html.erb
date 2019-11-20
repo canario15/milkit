@@ -12,7 +12,7 @@
   <tbody>
     <% @vacas.no_dry.each do |cow| %>
       <tr>
-        <td><%= cow.caravan_with_type %></td>
+        <td class= "stat-<%= cow.status %>"><%= cow.caravan_with_type %></td>
         <td><%= cow.due_date %></td>
         <td><%= cow.service_num %></td>
         <td><%= cow.service_date %></td>

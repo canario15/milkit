@@ -89,7 +89,6 @@ es:
           dry: 'Seca'
           gave_birth: 'Parió'
           empty: 'Vacía'
-          inseminate: 'Inseminada'
 
     errors:
       format: "%{attribute} %{message}"

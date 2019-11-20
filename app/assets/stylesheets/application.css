@@ -105,3 +105,30 @@ footer.site-footer .footer-inner {
 .hand-mouse {
   cursor:pointer;
 }
+
+.stat-pregnant {
+  color:#fff;
+  background-color:#221D8F;
+}
+.stat-discard {
+  color:#fff;
+  background-color:#ED2F15;
+}
+/*
+.stat-dry {
+  color:#fff;
+  background-color:#0FA20B;
+}
+.stat-empty {
+  color:#fff;
+  background-color:#EDE515;
+}
+.stat-dead {
+  color:#fff;
+  background-color:#010101;
+}
+.stat-served {
+  color:#fff;
+  background-color:#BD12B3;
+}
+*/
