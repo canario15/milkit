@@ -116,6 +116,9 @@
   <div class="card border border-secondary">
     <div id="headingFive" class="card-header hand-mouse" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
       <strong class="card-title">Tabla</strong>
+      <span class="float-right">
+        <%= link_to 'Imprimir', tambo_cows_to_excel_path(@tambo, format: :xlsx), class: 'edit-btn-cust btn-info'  %>
+      </span>
     </div>
     <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
       <div class="card-body">

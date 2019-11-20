@@ -57,6 +57,19 @@ class CowsController < InheritedResources::Base
     end
   end
 
+  def cows_to_excel
+    @tambo = current_user.tambos.find(params[:tambo_id])
+    @cows = @tambo.cows.vacas.no_dry
+    respond_to do |format|
+      format.xlsx do
+        response.headers[
+          'Content-Disposition'
+        ] = "attachment; filename=cows.xlsx"
+      end
+      format.html { render :cows_to_exel }
+    end
+  end
+
   private
 
   def set_cow_and_tambos

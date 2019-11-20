@@ -1,0 +1,64 @@
+# frozen_string_literal: true
+
+wb = xlsx_package.workbook
+
+wb.styles do |style|
+  project_heading = style.add_style(b: true, sz: 14)
+  heading = style.add_style(b: true,
+                            alignment: { horizontal: :center, vertical: :center },
+                            border: Axlsx::STYLE_THIN_BORDER)
+
+  row_style = style.add_style(alignment: { horizontal: :left, vertical: :center },
+                              border: Axlsx::STYLE_THIN_BORDER)
+
+  date = style.add_style(format_code: 'dd-mm-yyyy',
+                         border: Axlsx::STYLE_THIN_BORDER,
+                         alignment: { horizontal: :center, vertical: :center },)
+
+  number = style.add_style(border: Axlsx::STYLE_THIN_BORDER,
+                           alignment: { horizontal: :center, vertical: :center })
+
+  other_row = style.add_style(border: Axlsx::STYLE_THIN_BORDER,
+                              alignment: { horizontal: :left, vertical: :center })
+
+  pregnant_row = style.add_style(border: Axlsx::STYLE_THIN_BORDER,
+                                 alignment: { horizontal: :left, vertical: :center },
+                                 bg_color: '221D8F',
+                                 fg_color: 'FFFFFF')
+
+  discard_row = style.add_style(border: Axlsx::STYLE_THIN_BORDER,
+                                alignment: { horizontal: :left, vertical: :center },
+                                bg_color: 'ED2F15',
+                                fg_color: 'FFFFFF')
+
+  wb.add_worksheet(name: 'Vacas') do |sheet|
+    # Add a title row
+    sheet.add_row ["Tambo '#{@tambo.name}'"], style: project_heading
+    # Add the date this was downloaded
+    sheet.add_row ["Descargado el #{Time.now.strftime('%b %-d, %Y')}"]
+    # Merge Celss
+    sheet.merge_cells('A1:E1')
+    sheet.merge_cells('A2:E2')
+    # Add a blank row
+    sheet.add_row []
+    # Create the header row
+    sheet.add_row ['Caravana', 'F. Parto', 'Nº Servicio',
+                   'F. Servicio', 'Fecha', 'Toro'], style: heading
+    # Set indifernt column widths
+    sheet.column_widths 13, 11, 11, 11, 15, 15
+    # Create entries for each cow
+    @cows.each do |cow|
+      caravan_row = if cow.pregnant?
+                      pregnant_row
+                    elsif cow.discard?
+                      discard_row
+                    else
+                      other_row
+                    end
+      sheet.add_row [cow.caravan_with_type, cow.due_date, cow.service_num,
+                     cow.service_date, cow.date, cow.bull],
+                    style: [caravan_row, date, number,
+                            date, row_style, row_style]
+    end
+  end
+end

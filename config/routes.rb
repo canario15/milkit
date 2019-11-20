@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :events, except: %i[index]
     end
     get 'search_cow', to: 'cows#search_cow'
+    get 'cows_to_excel', to: 'cows#cows_to_excel'
   end
   devise_for :users, skip:  %i[registration]
   resources :users, only: %i[show update edit]
