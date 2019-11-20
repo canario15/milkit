@@ -20,6 +20,16 @@ es:
         author_type: "Tipo de autor"
         created_at: "Fecha de creación"
         updated_at: "Fecha de actualización"
+      cow:
+        cow_type: 'Tipo'
+        caravan: 'Caravana'
+        birth_date: 'Fecha Nacimiento'
+        tambo: 'Establecimiento'
+        status: 'Estado'
+        cow_types:
+          cow: 'Vaca'
+          small_cow: 'Vaquillona'
+          small_cow_tambo: 'Vaquillona en tambo'
   active_admin:
     dashboard: "Inicio"
     dashboard_welcome:

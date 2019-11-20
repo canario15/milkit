@@ -47,12 +47,21 @@ es:
         phone_contact: 'Teléfono de contacto'
         map_position: 'Posición en mapa'
         avatar: 'Logo'
+        user: 'Sistema de'
       cow:
         cow_type: 'Tipo'
         caravan: 'Caravana'
         birth_date: 'Fecha Nacimiento'
         tambo: 'Establecimiento'
         status: 'Estado'
+        created_at: "Fecha de creación"
+        updated_at: "Fecha de actualización"
+        due_date: 'Fecha parto'
+        service_num: 'Nro Servicio'
+        service_date: 'Fecha Ult. Servicio'
+        date: 'Fecha'
+        bull: 'Toro'
+        events: 'Eventos'
         cow_types:
           cow: 'Vaca'
           small_cow: 'Vaquillona'
@@ -72,6 +81,8 @@ es:
         bull: 'Toro'
         notification: 'Notificación'
         observations: 'Observación'
+        created_at: "Fecha de creación"
+        updated_at: "Fecha de actualización"
         actions:
           served: 'Servida'
           pregnant: 'Preñada'
