@@ -2,22 +2,31 @@
   <nav class="navbar navbar-expand-sm navbar-default">
     <div id="main-menu" class="main-menu collapse navbar-collapse">
       <ul class="nav navbar-nav">
+        <li class="active"></li>
+        <li class="active menu-title">MENU</li><!-- /.menu-title -->
         <li class="menu-item-has-children dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-home"></i>Establecimientos</a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Tambos</a>
           <ul class="sub-menu children dropdown-menu">
             <% current_user.tambos.each do |tambo| %>
-              <li>
-                <i class="fa fa-circle"></i>
-                <%= link_to tambo.name, tambo_path(tambo)%>
-              </li>
+              <li><i class="fa fa-circle"></i><%= link_to tambo.name, tambo_path(tambo)%></li>
             <% end %>                          
-            <li>
-              <i class="fa fa-plus-square"></i>
-              <%= link_to 'Nuevo', new_tambo_path %>
-            </li>
+            <li><i class="fa fa-plus-square"></i><%= link_to 'Nuevo', new_tambo_path %></li>
+          </ul>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-calendar"></i>Calendario</a>
+          <ul class="sub-menu children dropdown-menu">
+            <li><i class="fa fa-search"></i><%= link_to 'Ver', user_calendar_path() %></li>
+          </ul>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"></i>Usuario</a>
+          <ul class="sub-menu children dropdown-menu">
+            <li><i class="fa fa-user"></i><%= link_to 'Perfil', edit_user_path(current_user.id)%></li>
+            <li><i class="fa fa-power-off"></i><%= link_to 'Salir', destroy_user_session_path, method: "delete"%></li>
           </ul>
         </li>
       </ul>
-    </div><!-- /.navbar-collapse -->
+    </div>
   </nav>
 </aside>
