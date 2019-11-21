@@ -18,6 +18,11 @@
   max-width: 226px;
 }
 
+.error-field {
+  width: 93%;
+  display: inline;
+  margin-bottom: 0px;
+}
 .error-field span {
   color: #dc3545;
 }
