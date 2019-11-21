@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# describe cows controller
 class CowsController < InheritedResources::Base
   before_action :authenticate_user!
   before_action :set_cow_and_tambos, only: %i[show edit update destroy]
@@ -56,7 +59,7 @@ class CowsController < InheritedResources::Base
     @cow = @tambo.cows.find_by(caravan: params[:caravan])
     respond_to do |format|
       if @cow.nil?
-        format.html { redirect_to tambo_path(@tambo.id), notice: 'No existe esa caravana' }
+        format.html { redirect_to tambo_path(@tambo.id), alert: 'No se encontro vaca' }
         format.json { render json: { errors: 'No se encontro vaca' } }
       else
         format.html { redirect_to tambo_cow_path(@tambo, @cow) }
@@ -72,7 +75,7 @@ class CowsController < InheritedResources::Base
       format.xlsx do
         response.headers[
           'Content-Disposition'
-        ] = "attachment; filename=cows.xlsx"
+        ] = "attachment; filename=Planilla_#{@tambo.name}_#{Time.now.strftime('%b %-d, %Y')}.xlsx"
       end
       format.html { render :cows_to_exel }
     end

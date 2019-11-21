@@ -1,5 +1,7 @@
-class TambosController < InheritedResources::Base
+# frozen_string_literal: true
 
+# describe tambo controller
+class TambosController < InheritedResources::Base
   before_action :authenticate_user!
   before_action :set_tambo, only: %i[show edit update destroy]
 
@@ -9,10 +11,24 @@ class TambosController < InheritedResources::Base
 
   def create
     @tambo = Tambo.new(tambo_params.merge(user_id: current_user.id))
-    if @tambo.save
-      redirect_to @tambo
-    else
-      render 'new'
+    respond_to do |format|
+      if @tambo.save
+        format.html { redirect_to @tambo, notice: 'Tambo creado con éxito.' }
+      else
+        format.html { render :new }
+      end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @tambo.update(tambo_params)
+        format.html { redirect_to @tambo, notice: 'El tambo se ha actualizado correctamente.' }
+        format.json { render :show, status: :ok, location: @tambo }
+      else
+        format.html { render :edit }
+        format.json { render json: @tambo.errors, status: :unprocessable_entity }
+      end
     end
   end
 

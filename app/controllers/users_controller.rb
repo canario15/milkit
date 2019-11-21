@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# User controller
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
@@ -13,7 +16,7 @@ class UsersController < ApplicationController
     end
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to tambos_path }
+        format.html { redirect_to tambos_path, notice: 'El usuario se ha actualizado correctamente.' }
       else
         format.html { render :edit }
       end
@@ -25,8 +28,13 @@ class UsersController < ApplicationController
   end
 
   private
-    def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :avatar)
-    end
 
+  def user_params
+    params.require(:user).permit(
+      :email,
+      :password,
+      :password_confirmation,
+      :avatar
+    )
+  end
 end

@@ -29,7 +29,7 @@ class EventsController < InheritedResources::Base
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to tambo_cow_path(@tambo, @cow), notice: 'El evento actualizado correctamente.' }
+        format.html { redirect_to tambo_cow_path(@tambo, @cow), notice: 'El evento se ha actualizado correctamente.' }
         format.json { render json: { status: 'OK', message: 'Evento actualizado con éxito.', cow_id: @event.cow.id, tambo_id: @event.cow.tambo.id } }
       else
         format.html { render :edit }
@@ -42,7 +42,7 @@ class EventsController < InheritedResources::Base
     cow = @event.cow
     respond_to do |format|
       if cow.events.count == 1
-        format.html { redirect_to tambo_cow_path(@tambo, @cow), notice: 'No se puede eliminar el primer evento' }
+        format.html { redirect_to tambo_cow_path(@tambo, @cow), alert: 'No se puede eliminar el primer evento' }
       else
         @event.destroy
         format.html { redirect_to tambo_cow_path(@tambo, @cow), notice: 'Se ha eliminado correctamente el evento.' }

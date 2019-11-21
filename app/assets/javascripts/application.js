@@ -22,10 +22,23 @@
 //= require datatables.min.js
 //= require dataTables.bootstrap.min.js
 //= require datatables-init.js
+//= require notify.js
 
 
 jQuery(document).ready(function($) {
   "use strict";
+
+  if ($('#have_alert').text() != 0 ){
+    var type    = $('#have_alert').data('type');
+    var message = $('#have_alert').text();
+    $.notify(
+      message,
+      { position:"top center",
+        className: type
+      }
+    );
+    $('#have_alert').remove();
+  };
 
   $('#bootstrap-data-table-2').DataTable({
     "ordering": false,
