@@ -2,7 +2,7 @@
 
 ActiveAdmin.register Event do
   permit_params do
-    permitted = %i[cow_id date_event action bull notification observations]
+    permitted = %i[cow_id date_event action bull notify_date observations]
     permitted << :other if params[:action] == 'create' && current_user.admin?
     permitted
   end
@@ -23,7 +23,7 @@ ActiveAdmin.register Event do
       row('Vaca') { |event| link_to( event.cow.caravan, admin_cow_path(event.cow)) }
       row :date_event
       row('Evento') { |event| event.action_name }
-      row :notification
+      row :notify_date
       row :observations
       row :bull
       row :created_at

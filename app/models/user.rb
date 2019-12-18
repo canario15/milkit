@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_many :tambos
+  has_many :notifications
 
   def display_avatar
     if avatar.attached?
@@ -13,5 +14,9 @@ class User < ApplicationRecord
     else
       'defaut_avatar.png'
     end
+  end
+
+  def today_notification
+    notifications.where(read: false).where('notify_date <= ?', Date.today)
   end
 end

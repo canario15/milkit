@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-header">
+    <strong>Notificaciones</strong>
+  </div>
+  <div class="card-body card-block">
+    <% @notifications_unread.each do |notification| %>
+      <%= link_to notification_path(notification) do %>
+        <div class="toast toast--blue add-margin">
+          <div class="toast__icon"><i class="fa fa-envelope"></i></div>
+          <div class="toast__content">
+            <p class="toast__type"><%= notification.tambo %></p>
+            <p class="toast__message">
+              <strong><%= notification.notify_date %></strong>
+              La vaca: <strong><%= notification.cow.caravan_with_type %></strong> tiene que <strong><%= notification.description %></strong>
+            </p>
+          </div>
+          <div class="toast__close"><i class="fa fa-times"></i></div>
+        </div>
+      <% end %>
+    <% end %>
+    </br>
+    <% @notifications_read.each do |notification| %>
+      <%= link_to notification_path(notification) do %>
+        <div class="toast toast--grey add-margin">
+          <div class="toast__icon"><i class="fa fa-envelope-o"> </i></div>
+          <div class="toast__content">
+            <p class="toast__type"><%= notification.tambo %></p>
+            <p class="toast__message">
+              <strong><%= notification.notify_date %></strong>
+              La vaca: <strong><%= notification.cow.caravan_with_type %></strong> tiene que <strong><%= notification.description %></strong>
+            </p>
+          </div>
+          <div class="toast__close"><i class="fa fa-times"></i></div>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="apple_pagination">
+      <%= will_paginate @notifications_read, :container => false %>
+    </div>
+  </div>
+</div>
+

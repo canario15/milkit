@@ -1,0 +1,56 @@
+<div class="card border border-status">
+  <div class="card-header">
+    <strong>Notificación</strong>
+  </div>
+  <div class="card-body card-block">
+    
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <label class="form-control-label">Fecha:</label>
+      </div>
+      <div class="col-12 col-md-9">
+        <input class="form-control" readonly="readonly" type="text" value=<%= @notification.notify_date %>>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <label class="form-control-label">Tambo:</label>
+      </div>
+      <div class="col-12 col-md-9">
+        <input class="form-control" readonly="readonly" type="text" value="<%= @notification.tambo.name %>">
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <label class="form-control-label">Vaca:</label>
+      </div>
+      <div class="col-12 col-md-9">
+        <input class="form-control" readonly="readonly" type="text" value=<%= @notification.cow.caravan %>>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <label class="form-control-label">Evento:</label>
+      </div>
+      <div class="col-12 col-md-9">
+        <input class="form-control" readonly="readonly" type="text" value=<%= @notification.event.action_name %>>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <label class="form-control-label">Descripción:</label>
+      </div>
+      <div class="col-12 col-md-9">
+        <input class="form-control" readonly="readonly" type="text" value=<%= @notification.description %>>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <%= link_to  "Atras", notifications_path(), class: 'btn btn-primary btn-sm' %>
+    <%= link_to  "Marcar no leído", mark_unread_path(@notification),  method: :post, class: 'btn btn-success btn-sm' %>
+  </div>
+</div>

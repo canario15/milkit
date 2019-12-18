@@ -1,59 +1,59 @@
 <div class="row">
   <% @tambos.each do |tambo| %>
-    <%= link_to tambo_path(tambo) do %>
-      <div class="col-md-4">
-        <aside class="profile-nav alt">
-          <section class="card">
-            <div class="card-header user-header alt bg-dark">
-              <div class="media">
-                  <%= image_tag tambo.display_logo, class: "align-self-center rounded-circle mr-3", style: "width:65px; height:65px;" %>
-                <div class="media-body">
+    <div class="col-md-4">
+      <aside class="profile-nav alt">
+        <section class="card">
+          <div class="card-header user-header alt bg-dark">
+            <div class="media">
+                <%= image_tag tambo.display_logo, class: "align-self-center rounded-circle mr-3", style: "width:65px; height:65px;" %>
+              <div class="media-body">
+                <%= link_to tambo_path(tambo) do %>
                   <h2 class="text-light display-6"><%= tambo.name %></h2>
-                  <p><%= tambo.address %></p>
-                </div>
+                <% end %>
+                <p><%= tambo.address %></p>
               </div>
             </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <a href="#"> 
-                  <i class="fa fa-dot-circle-o"></i> 
-                  Vacas secas 
-                  <span class="badge badge-dry pull-right">
-                    <%= tambo.cows.dry.count %>
-                  </span>
-                </a>
-              </li>
-              <li class="list-group-item">
-                <a href="#"> 
-                  <i class="fa fa-dot-circle-o"></i> 
-                  Vacas preñadas 
-                  <span class="badge badge-pregnant pull-right">
-                    <%= tambo.cows.pregnant.count %>
-                  </span>
-                </a>
-              </li>
-              <li class="list-group-item">
-                <a href="#"> 
-                  <i class="fa fa-dot-circle-o"></i> 
-                  Vacas vacía
-                  <span class="badge badge-empty pull-right">
-                   <%= tambo.cows.empty.count %>
-                  </span>
-                </a>
-              </li>
-              <li class="list-group-item">
-                <a href="#"> 
-                  <i class="fa fa-dot-circle-o"></i> 
-                  Vacas para descarte 
-                  <span class="badge badge-discard pull-right r-activity">
-                    <%= tambo.cows.discard.count %>
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </section>
-        </aside>
-      </div>
-    <% end %>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <a href="#"> 
+                <i class="fa fa-dot-circle-o"></i> 
+                Vacas secas 
+                <span class="badge badge-dry pull-right">
+                  <%= tambo.cows.dry.count %>
+                </span>
+              </a>
+            </li>
+            <li class="list-group-item">
+              <a href="#"> 
+                <i class="fa fa-dot-circle-o"></i> 
+                Vacas preñadas 
+                <span class="badge badge-pregnant pull-right">
+                  <%= tambo.cows.pregnant.count %>
+                </span>
+              </a>
+            </li>
+            <li class="list-group-item">
+              <a href="#"> 
+                <i class="fa fa-dot-circle-o"></i> 
+                Vacas vacía
+                <span class="badge badge-empty pull-right">
+                  <%= tambo.cows.empty.count %>
+                </span>
+              </a>
+            </li>
+            <li class="list-group-item">
+              <a href="#"> 
+                <i class="fa fa-dot-circle-o"></i> 
+                Vacas para descarte 
+                <span class="badge badge-discard pull-right r-activity">
+                  <%= tambo.cows.discard.count %>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </aside>
+    </div>
   <% end %>
 </div>

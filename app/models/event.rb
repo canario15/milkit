@@ -16,7 +16,9 @@ class Event < ApplicationRecord
   default_scope { order(date_event: :asc) }
 
   after_save :update_cow_data
+  after_save :create_or_update_notification
   after_destroy :set_cow_status
+  has_one :notification, dependent: :destroy
 
   def self.action_attributes_for_select
     actions.map do |action, _|
@@ -62,5 +64,26 @@ class Event < ApplicationRecord
     else
       1
     end
+  end
+
+  def create_or_update_notification
+    notification = Notification.find_by(event_id: id)
+    if notify_date.blank? && !notification.blank?
+      notification.destroy
+    elsif notification.blank?
+      Notification.create(tambo_id: cow.tambo_id,
+                          cow_id: cow_id,
+                          event_id: id,
+                          user_id: cow.tambo.user.id,
+                          read: false,
+                          description: set_notification_description,
+                          notify_date: notify_date)
+    else
+      notification.update(notify_date: notify_date)
+    end
+  end
+
+  def set_notification_description
+    ''
   end
 end

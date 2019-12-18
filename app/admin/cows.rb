@@ -36,7 +36,7 @@ ActiveAdmin.register Cow do
         table_for cow.events do
           column :date_event
           column('Evento') { |event| event.action_name }
-          column :notification
+          column :notify_date
           column('Acciones') { |event| link_to('Ver', admin_event_path(event)) }
           column('') { |event| link_to('Editar', edit_admin_event_path(event)) }
         end

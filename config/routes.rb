@@ -8,6 +8,11 @@ Rails.application.routes.draw do
     get 'search_cow', to: 'cows#search_cow'
     get 'cows_to_excel', to: 'cows#cows_to_excel'
   end
+
+  resources :notifications
+  post 'notifications/:id/mark_unread', to: 'notifications#mark_unread',
+                                        as: :mark_unread
+
   devise_for :users, skip: %i[registration]
   resources :users, only: %i[show update edit]
   get '/user/calendar', to: 'users#calendar'
