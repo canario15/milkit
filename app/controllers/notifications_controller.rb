@@ -3,6 +3,7 @@
 # notifications controller
 class NotificationsController < ApplicationController
   def index
+    @all_notifications_unread = current_user.notifications.unread
     @notifications_unread = current_user.today_notification
     @notifications_read = current_user
                           .notifications

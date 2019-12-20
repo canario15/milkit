@@ -23,6 +23,9 @@
 //= require dataTables.bootstrap.min.js
 //= require datatables-init.js
 //= require notify.js
+//= require moment 
+//= require fullcalendar
+//= require fullcalendar/locale-all
 
 
 jQuery(document).ready(function($) {
@@ -65,6 +68,10 @@ jQuery(document).ready(function($) {
           "previous": "Anterior"
       }
     }
+  });
+
+  $('#calendar').fullCalendar({
+    events: '/notifications.json'
   });
  
 });
