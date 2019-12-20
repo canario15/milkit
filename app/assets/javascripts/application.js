@@ -71,7 +71,11 @@ jQuery(document).ready(function($) {
   });
 
   $('#calendar').fullCalendar({
-    events: '/notifications.json'
+    events: '/notifications.json',
+    locale: 'es',
+    eventRender: function(event, element){
+      element.find('.fc-title').html(event.tambo + "<br/>" + event.caravan + "<br/>" + event.description ); 
+    }
   });
  
 });

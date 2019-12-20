@@ -36,7 +36,7 @@
         <label class="form-control-label">Evento:</label>
       </div>
       <div class="col-12 col-md-9">
-        <input class="form-control" readonly="readonly" type="text" value=<%= @notification.event.action_name %>>
+        <input class="form-control" readonly="readonly" type="text" value="<%= @notification.event.date_event %> - <%= @notification.event.action_name %>">
       </div>
     </div>
 
@@ -45,7 +45,7 @@
         <label class="form-control-label">Descripción:</label>
       </div>
       <div class="col-12 col-md-9">
-        <input class="form-control" readonly="readonly" type="text" value=<%= @notification.description %>>
+        <input class="form-control" readonly="readonly" type="text" value="<%= @notification.description %>">
       </div>
     </div>
   </div>

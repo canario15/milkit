@@ -39,6 +39,12 @@
   margin-bottom: 0;
 }
 
+.toast__type__read {
+  color: #3e3e3e;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .toast__message {
   font-size: 14px;
   margin-top: 0;

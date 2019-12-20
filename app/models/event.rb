@@ -9,6 +9,7 @@ class Event < ApplicationRecord
                  empty: 5 }
 
   belongs_to :cow
+  has_one :notification, dependent: :destroy
 
   validates :date_event, presence: true
   validates :action, presence: true
@@ -18,7 +19,6 @@ class Event < ApplicationRecord
   after_save :update_cow_data
   after_save :create_or_update_notification
   after_destroy :set_cow_status
-  has_one :notification, dependent: :destroy
 
   def self.action_attributes_for_select
     actions.map do |action, _|
@@ -76,14 +76,9 @@ class Event < ApplicationRecord
                           event_id: id,
                           user_id: cow.tambo.user.id,
                           read: false,
-                          description: set_notification_description,
                           notify_date: notify_date)
     else
       notification.update(notify_date: notify_date)
     end
-  end
-
-  def set_notification_description
-    ''
   end
 end

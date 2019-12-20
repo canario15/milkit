@@ -39,12 +39,22 @@
         <input class="form-control" readonly="readonly" type="text" value=<%= @event.notify_date %>>
       </div>
     </div>
+
+    <div class="row form-group">
+      <div class="col col-md-3">
+        <label class="form-control-label">Descripción Notificación:</label>
+      </div>
+      <div class="col-12 col-md-9">
+        <input class="form-control" readonly="readonly" type="text" value="<%= @event.notify_description %>">
+      </div>
+    </div>
+
     <div class="row form-group">
       <div class="col col-md-3">
         <label class="form-control-label">Observación:</label>
       </div>
       <div class="col-12 col-md-9">
-        <input class="form-control" readonly="readonly" type="text" value=<%= @event.observations %>>
+        <input class="form-control" readonly="readonly" type="text" value="<%= @event.observations %>">
       </div>
     </div>
   </div>

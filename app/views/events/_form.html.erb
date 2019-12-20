@@ -37,6 +37,15 @@
 
       <div class="row form-group">
         <div class="col col-md-3">
+          <%= form.label :notify_description, class: "form-control-label" %>
+        </div>
+        <div class="col-12 col-md-9">
+          <%= form.text_field :notify_description, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <div class="col col-md-3">
           <%= form.label :observations, class: "form-control-label" %>
         </div>
         <div class="col-12 col-md-9">

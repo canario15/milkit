@@ -10,8 +10,8 @@
           <div class="toast__content">
             <p class="toast__type"><%= notification.tambo %></p>
             <p class="toast__message">
-              <strong><%= notification.notify_date %></strong>
-              La vaca: <strong><%= notification.cow.caravan_with_type %></strong> tiene que <strong><%= notification.description %></strong>
+              <strong><%= notification.notify_date %> - </strong> 
+              <strong>Caravana: <%= notification.cow.caravan_with_type %> - <%= notification.description %></strong>
             </p>
           </div>
           <div class="toast__close"><i class="fa fa-times"></i></div>
@@ -24,10 +24,10 @@
         <div class="toast toast--grey add-margin">
           <div class="toast__icon"><i class="fa fa-envelope-o"> </i></div>
           <div class="toast__content">
-            <p class="toast__type"><%= notification.tambo %></p>
+            <p class="toast__type__read"><%= notification.tambo %></p>
             <p class="toast__message">
-              <strong><%= notification.notify_date %></strong>
-              La vaca: <strong><%= notification.cow.caravan_with_type %></strong> tiene que <strong><%= notification.description %></strong>
+              <%= notification.notify_date %> -
+              Caravana: <%= notification.cow.caravan_with_type %> - <%= notification.description %>
             </p>
           </div>
           <div class="toast__close"><i class="fa fa-times"></i></div>

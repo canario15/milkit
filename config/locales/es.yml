@@ -80,6 +80,7 @@ es:
         action: 'Evento'
         bull: 'Toro'
         notify_date: 'Fecha Notificación'
+        notify_description: 'Descripción Notificación'
         observations: 'Observación'
         created_at: "Fecha de creación"
         updated_at: "Fecha de actualización"
@@ -175,7 +176,7 @@ es:
       - septiembre
       - octubre
       - noviembre
-      - diciembre
+      - Diciembre
     order:
       - :day
       - :month

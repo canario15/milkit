@@ -65,6 +65,7 @@ class EventsController < InheritedResources::Base
       :action,
       :bull,
       :notify_date,
+      :notify_description,
       :observations
     )
   end
