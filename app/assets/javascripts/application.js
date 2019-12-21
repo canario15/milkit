@@ -25,8 +25,8 @@
 //= require notify.js
 //= require moment 
 //= require fullcalendar
-//= require fullcalendar/locale-all
-
+//= require fullcalendar/locale-all.js
+//= require jquery.minicolors
 
 jQuery(document).ready(function($) {
   "use strict";
@@ -71,11 +71,19 @@ jQuery(document).ready(function($) {
   });
 
   $('#calendar').fullCalendar({
-    events: '/notifications.json',
     locale: 'es',
+    weekNumbers: true,
+    dayNamesShort: ['Lun','Mar','Mie','Jue','Vie','Sáb','Dom'],
+    monthNames: ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],
+    events: '/notifications.json',
+    eventLimit: 2,
     eventRender: function(event, element){
-      element.find('.fc-title').html(event.tambo + "<br/>" + event.caravan + "<br/>" + event.description ); 
-    }
+      element.find('.fc-title').html(event.tambo + "<br/>" + event.caravan + "<br/>" + event.description );
+    },
+  });
+
+  $('#tambo_notification_color').minicolors({
+    theme: 'bootstrap'
   });
  
   $('#event_action').on('change' , function () {

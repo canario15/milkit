@@ -6,5 +6,6 @@ json.array!(@all_notifications_unread) do |notification|
   json.tambo notification.tambo.name
   json.start notification.notify_date
   json.end notification.notify_date
+  json.color notification.tambo.notification_color
   json.url notification_url(notification, format: :html)
 end

@@ -48,6 +48,7 @@ es:
         map_position: 'Posición en mapa'
         avatar: 'Logo'
         user: 'Sistema de'
+        notification_color: 'Color de notificación'
       cow:
         cow_type: 'Tipo'
         caravan: 'Caravana'

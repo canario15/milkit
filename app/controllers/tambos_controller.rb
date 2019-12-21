@@ -50,6 +50,7 @@ class TambosController < InheritedResources::Base
                                   :phone_contact,
                                   :map_position,
                                   :user_id,
-                                  :logo)
+                                  :logo,
+                                  :notification_color)
   end
 end
