@@ -109,7 +109,10 @@
 .today-notifications i {
   color: red !important;
 }
-
 .toast strong {
   color: #3e3e3e;
+}
+
+.notify-mess {
+  color: #dc3545;
 }

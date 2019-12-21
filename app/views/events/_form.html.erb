@@ -1,4 +1,5 @@
 <%= form_with(model: @event, url: [@tambo, @cow, @event], id: "", local: true, class: "form-horizontal") do |form| %>  
+<%= hidden_field_tag 'service_date', @cow.service_date&.strftime('%Y/%m/%d') %>
   <div class="modal-body">
     <div class="card-body card-block">
 
@@ -33,6 +34,8 @@
             <span class="fa fa-calendar"></span>
           </div>
         </div>
+        <div class="col col-md-3"></div>
+        <div class="col-12 col-md-9 notify-mess"></div>
       </div>
 
       <div class="row form-group">

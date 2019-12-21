@@ -78,4 +78,60 @@ jQuery(document).ready(function($) {
     }
   });
  
+  $('#event_action').on('change' , function () {
+    $('.notify-mess').html("");
+    $('#event_notify_description').val("");
+    $('#event_notify_date').val("");
+    var event_action = $(this).val();
+    switch (event_action) {
+      case 'served':
+        served_actions();
+        break;
+      case 'pregnant':
+        pregnant_actions();
+        break;
+      case 'dry':
+        break;
+      case 'gave_birth':
+        break;
+      case 'empty':
+        break;
+      default:
+        
+    }
+  });
+
+  Date.prototype.addDays = function(days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+  } 
 });
+
+function pregnant_actions() {
+  var service_date_value = $('#service_date').val();
+  if (service_date_value != "") {
+    var service_date = new Date(service_date_value);
+    var notify_date = service_date.addDays(190);
+    var notify_date_string = notify_date.getUTCDate() +"/"+ (notify_date.getUTCMonth()+1) +"/"+ notify_date.getUTCFullYear();
+    $('#event_notify_date').val(notify_date_string);
+  }else{
+    var notif = "<span class='help-inline'>No existe fecha de 'Servida' para setear notificación automática.</span>"
+    $('.notify-mess').append(notif);
+  }
+  $('#event_notify_description').val("Revisar para secar");
+}
+function served_actions() {
+  var res = $('#event_date_event').val().split("/");
+  if (res != "") {
+    var service_date_value = res[2]+"/"+res[1]+"/"+res[0];
+    var service_date = new Date(service_date_value);
+    var notify_date = service_date.addDays(45);
+    var notify_date_string = notify_date.getUTCDate() +"/"+ (notify_date.getUTCMonth()+1) +"/"+ notify_date.getUTCFullYear();
+    $('#event_notify_date').val(notify_date_string);
+  }else{
+    var notif = "<span class='help-inline'>No existe fecha del evento para setear notificación automática.</span>"
+    $('.notify-mess').append(notif);
+  }
+  $('#event_notify_description').val("Revisar para ecografía");
+}
