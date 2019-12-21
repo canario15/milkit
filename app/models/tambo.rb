@@ -5,6 +5,8 @@ class Tambo < ApplicationRecord
 
   validates :name, presence: true
 
+  default_scope { order(name: :asc) }
+
   def to_s
     name
   end

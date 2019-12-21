@@ -152,6 +152,6 @@ footer.site-footer .footer-inner {
   margin-bottom: 3%;
 }
 
-.profile-nav.alt {
-  box-shadow: 1px 0px 33px 1px rgba(0,0,0,0.2);
+.profile-nav.alt:hover {
+  box-shadow: 1px 0px 33px 1px #3a87ad;
 }

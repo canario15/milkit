@@ -21,6 +21,17 @@ module ApplicationHelper
     </style>"
   end
 
+  def tambo_hover_color(tambo)
+    color = tambo.notification_color
+    return '' if color.blank?
+
+    "<style>
+      #tambo_id_#{tambo.id}:hover {
+        box-shadow: 1px 0px 33px 1px #{color};
+      }
+    </style>"
+  end
+
   def flash_notifications
     message = flash[:alert] || flash[:notice]
     return if message
