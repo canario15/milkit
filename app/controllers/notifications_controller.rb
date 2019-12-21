@@ -26,4 +26,15 @@ class NotificationsController < ApplicationController
       end
     end
   end
+
+  def mark_read
+    @notification = current_user.notifications.find(params[:id])
+    respond_to do |format|
+      if @notification.update(read: true)
+        format.html { redirect_to notifications_path, notice: 'La notificación se ha actualizado correctamente.' }
+      else
+        format.html { render :index }
+      end
+    end
+  end
 end

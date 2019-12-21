@@ -14,7 +14,9 @@
               <strong>Caravana: <%= notification.cow.caravan_with_type %> - <%= notification.description %></strong>
             </p>
           </div>
-          <div class="toast__close"><i class="fa fa-times"></i></div>
+          <%= link_to mark_read_path(notification),  method: :post do %>
+            <div class="toast__close"><i class="fa fa-times"></i></div>
+          <% end %>
         </div>
       <% end %>
     <% end %>
@@ -30,7 +32,6 @@
               Caravana: <%= notification.cow.caravan_with_type %> - <%= notification.description %>
             </p>
           </div>
-          <div class="toast__close"><i class="fa fa-times"></i></div>
         </div>
       <% end %>
     <% end %>
