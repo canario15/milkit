@@ -79,7 +79,12 @@ jQuery(document).ready(function($) {
     eventLimit: 2,
     eventRender: function(event, element){
       element.find('.fc-title').html(event.tambo + "<br/>" + event.caravan + "<br/>" + event.description );
+      element.attr("title", event.title);
     },
+  });
+
+  $('.fc-event').tooltip({
+    container: 'body'
   });
 
   $('#tambo_notification_color').minicolors({
