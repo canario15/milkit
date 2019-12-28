@@ -5,10 +5,14 @@ class NotificationsController < ApplicationController
   def index
     @all_notifications_unread = current_user.notifications.unread
     @notifications_unread = current_user.today_notification
-    @notifications_read = current_user
-                          .notifications
-                          .read
-                          .paginate(page: params[:page], per_page: 10)
+                                        .paginate(page: params[:page],
+                                                  per_page: 5)
+  end
+
+  def notifications_read
+    @notifications_read = current_user.notifications.read
+                                      .paginate(page: params[:page],
+                                                per_page: 10)
   end
 
   def show

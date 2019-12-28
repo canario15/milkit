@@ -14,6 +14,8 @@ Rails.application.routes.draw do
                                         as: :mark_unread
   post 'notifications/:id/mark_read', to: 'notifications#mark_read',
                                       as: :mark_read
+  get 'notifications_read', to: 'notifications#notifications_read',
+                            as: :notifications_read
 
   devise_for :users, skip: %i[registration]
   resources :users, only: %i[show update edit]

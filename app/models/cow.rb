@@ -80,4 +80,21 @@ class Cow < ApplicationRecord
   def last_service_date
     events.served.try(:last).try(:date_event)
   end
+
+  # Temporal method
+  def self.create_served_event
+    pregnant.each do |cow|
+      next unless cow.events.served.blank?
+
+      event_id = cow.events.pregnant.last.id
+      pregnant_date = cow.events.pregnant.last.date_event
+      Event.create(cow_id: cow.id, date_event: pregnant_date, action: 1)
+      Event.create(cow_id: cow.id,
+                   date_event: pregnant_date,
+                   action: 2,
+                   notify_date: pregnant_date + 190.days,
+                   notify_description: 'Revisar para secar')
+      Event.find(event_id).destroy
+    end
+  end
 end

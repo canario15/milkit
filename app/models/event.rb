@@ -70,7 +70,7 @@ class Event < ApplicationRecord
     notification = Notification.find_by(event_id: id)
     if notify_date.blank? && !notification.blank?
       notification.destroy
-    elsif notification.blank?
+    elsif notification.blank? && !notify_date.blank?
       Notification.create(tambo_id: cow.tambo_id,
                           cow_id: cow_id,
                           event_id: id,
@@ -78,7 +78,7 @@ class Event < ApplicationRecord
                           read: false,
                           notify_date: notify_date)
     else
-      notification.update(notify_date: notify_date)
+      notification.update(notify_date: notify_date) unless notification.blank?
     end
   end
 end

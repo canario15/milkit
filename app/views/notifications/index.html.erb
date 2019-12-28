@@ -21,23 +21,10 @@
       <% end %>
     <% end %>
     </br>
-    <% @notifications_read.each do |notification| %>
-      <%= link_to notification_path(notification) do %>
-        <div class="toast toast--grey add-margin">
-          <div class="toast__icon"><i class="fa fa-envelope-o"> </i></div>
-          <div class="toast__content">
-            <p class="toast__type__read"><%= notification.tambo %></p>
-            <p class="toast__message">
-              <%= notification.notify_date %> -
-              Caravana: <%= notification.cow.caravan_with_type %> - <%= notification.description %>
-            </p>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
     <div class="apple_pagination">
-      <%= will_paginate @notifications_read, :container => false %>
+      <%= will_paginate @notifications_unread, :container => false %>
     </div>
+    <%= link_to 'Ver leídas', notifications_read_path() %>
   </div>
 </div>
 
