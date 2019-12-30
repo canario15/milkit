@@ -3,21 +3,26 @@
     <strong>Notificaciones</strong>
   </div>
   <div class="card-body card-block">
-    <% @notifications_unread.each do |notification| %>
-      <%= link_to notification_path(notification) do %>
-        <div class="toast toast--blue add-margin">
-          <div class="toast__icon"><i class="fa fa-envelope"></i></div>
-          <div class="toast__content">
-            <p class="toast__type"><%= notification.tambo %></p>
-            <p class="toast__message">
-              <strong><%= notification.notify_date %> - </strong> 
-              <strong>Caravana: <%= notification.cow.caravan_with_type %> - <%= notification.description %></strong>
-            </p>
+    <% if @notifications_unread.blank? %>
+      <p>No existen notificaciones sin leer hoy.</p>
+    <% else %>
+      <p>Notificaciones sin leer</p>
+      <% @notifications_unread.each do |notification| %>
+        <%= link_to notification_path(notification) do %>
+          <div class="toast toast--blue add-margin">
+            <div class="toast__icon"><i class="fa fa-envelope"></i></div>
+            <div class="toast__content">
+              <p class="toast__type"><%= notification.tambo %></p>
+              <p class="toast__message">
+                <strong><%= notification.notify_date %> - </strong> 
+                <strong>Caravana: <%= notification.cow.caravan_with_type %> - <%= notification.description %></strong>
+              </p>
+            </div>
+            <%= link_to mark_read_path(notification),  method: :post do %>
+              <div class="toast__close"><i class="fa fa-times"></i></div>
+            <% end %>
           </div>
-          <%= link_to mark_read_path(notification),  method: :post do %>
-            <div class="toast__close"><i class="fa fa-times"></i></div>
-          <% end %>
-        </div>
+        <% end %>
       <% end %>
     <% end %>
     </br>

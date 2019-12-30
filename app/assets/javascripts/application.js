@@ -125,9 +125,12 @@ function pregnant_actions() {
   var service_date_value = $('#service_date').val();
   if (service_date_value != "") {
     var service_date = new Date(service_date_value);
+    var service_date_string = service_date.getUTCDate() +"/"+ (service_date.getUTCMonth()+1) +"/"+ service_date.getUTCFullYear(); 
     var notify_date = service_date.addDays(190);
     var notify_date_string = notify_date.getUTCDate() +"/"+ (notify_date.getUTCMonth()+1) +"/"+ notify_date.getUTCFullYear();
     $('#event_notify_date').val(notify_date_string);
+    $('#event_date_event').val(service_date_string);
+    
   }else{
     var notif = "<span class='help-inline'>No existe fecha de 'Servida' para setear notificación automática.</span>"
     $('.notify-mess').append(notif);

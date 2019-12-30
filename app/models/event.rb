@@ -14,7 +14,7 @@ class Event < ApplicationRecord
   validates :date_event, presence: true
   validates :action, presence: true
 
-  default_scope { order(date_event: :asc) }
+  default_scope { order(date_event: :asc, created_at: :asc) }
 
   after_save :update_cow_data
   after_save :create_or_update_notification
