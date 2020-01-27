@@ -37,19 +37,19 @@ class Cow < ApplicationRecord
     end
   end
 
+  def self.cow_type_attributes_for_select
+    cow_types.map do |cow_type, _|
+      [I18n.t("activerecord.attributes.cow.cow_types.#{cow_type}"),
+       cow_type]
+    end
+  end
+
   def status_number
     read_attribute_before_type_cast(:status)
   end
 
   def status_name
     I18n.t("activerecord.attributes.cow.statuses.#{status}")
-  end
-
-  def self.cow_type_attributes_for_select
-    cow_types.map do |cow_type, _|
-      [I18n.t("activerecord.attributes.cow.cow_types.#{cow_type}"),
-       cow_type]
-    end
   end
 
   def cow_type_number
@@ -68,17 +68,16 @@ class Cow < ApplicationRecord
     end
   end
 
-  def count_served_after_gave_birth
-    date_last_event_gave_birth = events.gave_birth.try(:last).try(:date_event)
-    events.served.where('date_event >= ?', date_last_event_gave_birth).count
-  end
-
   def last_due_date
     events.gave_birth.try(:last).try(:date_event)
   end
 
+  def count_served_after_gave_birth
+    events.served.where('date_event >= ?', last_due_date).count
+  end
+
   def last_service_date
-    events.served.try(:last).try(:date_event)
+    events.served.where('date_event >= ?', last_due_date).last.try(:date_event)
   end
 
   # Temporal method
