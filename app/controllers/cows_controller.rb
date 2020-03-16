@@ -73,9 +73,10 @@ class CowsController < InheritedResources::Base
     @cows = @tambo.cows.vacas.no_dry
     respond_to do |format|
       format.xlsx do
+        file_name = "Planilla_#{@tambo.name}_#{Time.now.strftime('%d_%m_%Y')}.xlsx".gsub(" ", "_")
         response.headers[
           'Content-Disposition'
-        ] = "attachment; filename=Planilla_#{@tambo.name}_#{Time.now.strftime('%b %-d, %Y')}.xlsx"
+        ] = "attachment; filename=#{file_name}"
       end
       format.html { render :cows_to_exel }
     end
