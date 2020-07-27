@@ -102,7 +102,7 @@
           </div>
         <% end %>
         <% @vaquillonas.each do |cow| %>
-          <%= link_to tambo_cow_path(cow) do %>
+          <%= link_to tambo_cow_path(@tambo,  cow) do %>
             <div class="cow-item">
                 <%= image_tag "#{cow.status_number}_cow_icon.png" %></br>
               <%= cow.caravan_with_type %>
