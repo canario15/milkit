@@ -13,8 +13,8 @@ class Cow < ApplicationRecord
                    small_cow: 2,
                    small_cow_tambo: 3 }
 
-  belongs_to :tambo
-  has_many :events
+  belongs_to :tambo, :dependent => :destroy 
+  has_many :events, :dependent => :destroy
 
   validates :cow_type, presence: true
   validates :caravan, presence: true, numericality: { only_integer: true }
