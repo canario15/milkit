@@ -1,7 +1,8 @@
 class Tambo < ApplicationRecord
   belongs_to :user
-  has_many :cows
   has_one_attached :logo
+  has_many :cows, :dependent => :destroy
+  has_many :notifications, :dependent => :destroy
 
   validates :name, presence: true
 
